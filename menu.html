@@ -6,11 +6,12 @@
     <meta http-equiv='cache-control' content='no-cache'> 
     <meta http-equiv='expires' content='0'> 
     <meta http-equiv='pragma' content='no-cache'>
-    <title>Domino's Pizza</title>
+    <title>Domino's Pizza | Menú</title>
 
     <!-- LINKS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/menuStyle.css">
     <link rel="icon" type="image/png" href="Images/DominosLogo-Chico.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -18,8 +19,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script defer src="JS/modalFunction.js"></script>
     <script src="JS/dbConnection.js"></script>
-    <script defer src="JS/flechas.js"></script>
   </head>
+
   <body>
     <!-- NAVTOP -->
     <header>
@@ -39,8 +40,8 @@
 
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav mx-auto">
-              <a class="nav-link active link-navtop" aria-current="page" href="#">INICIO</a>
-              <a class="nav-link link-navtop" href="/menu.html">MENÚ</a>
+              <a class="nav-link link-navtop" href="/index.html">INICIO</a>
+              <a class="nav-link active link-navtop" aria-current="page" href="/menu.html">MENÚ</a>
               <a class="nav-link link-navtop" href="#">ARMA TU PIZZA</a>
               <a class="nav-link link-navtop" href="#">SUCURSALES</a>
               <a class="nav-link link-navtop" href="/sobreNosotros.html">SOBRE NOSOTROS</a>
@@ -50,127 +51,87 @@
       </nav>
     </header>
 
-    <!-- CAROUSEL PROMOCIONES -->
-    <section>
-      <div id="carouselExampleIndicators" class="carousel slide">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="Images/Banner1.jpg" class="d-block w-100" alt="Banner-1">
-          </div>
-          <div class="carousel-item">
-            <img src="Images/Banner2.jpg" class="d-block w-100" alt="Banner-2">
-          </div>
-          <div class="carousel-item">
-            <img src="Images/Banner3.jpg" class="d-block w-100" alt="Banner-3">
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </section>
+    <!-- MENU -->
+    <main class="container text-center my-5">
+        <h1 style="font-weight: 700;">NUESTRO MENÚ</h1>
 
-    <!-- PROCESO ENTREGA -->
-    <section class="container text-center" style="margin-top: 5rem; margin-bottom: 5rem;">
-      <h2 class="mb-5 fw-light">ENTREGA A <span class="fw-semibold">DOMICILIO?</span></h2>
-      <div class="contenedor-proceso row justify-content-center mb-5">
-        <div class="col-4 col-md-4 col-lg-3 text-center">
-          <div class="row justify-content-center">
-            <div class="col-12 contorno-icono-proceso">
-              <i class="fa-solid fa-rectangle-list icono-proceso"></i>
+        <!-- nav menu -->
+        <nav>
+            <div class="nav nav-tabs justify-content-center my-4" id="nav-tab" role="tablist">
+              <button class="nav-link active link-menu" id="nav-pizza-tab" data-bs-toggle="tab" data-bs-target="#nav-pizza" type="button" role="tab" aria-controls="nav-pizza" aria-selected="true">Pizzas</button>
+              <button class="nav-link link-menu" id="nav-pollo-tab" data-bs-toggle="tab" data-bs-target="#nav-pollo" type="button" role="tab" aria-controls="nav-pollo" aria-selected="false">Pollo</button>
+              <button class="nav-link link-menu" id="nav-bebidas-tab" data-bs-toggle="tab" data-bs-target="#nav-bebidas" type="button" role="tab" aria-controls="nav-bebidas" aria-selected="false">Bebidas</button>
+              <button class="nav-link link-menu" id="nav-postres-tab" data-bs-toggle="tab" data-bs-target="#nav-postres" type="button" role="tab" aria-controls="nav-postres" aria-selected="false">Postres</button>
             </div>
-            <div class="col-12 col-md-12 col-lg-7 text-center">
-              <p class="mt-4">Elige tu pizza favorita y agregala al carrito</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-4 col-md-4 col-lg-3 text-center">
-          <div class="row justify-content-center">
-            <div class="col-12 contorno-icono-proceso">
-              <i class="fa-solid fa-truck icono-proceso"></i>
-            </div>
-            <div class="col-12 col-md-12 col-lg-7 text-center">
-              <p class="mt-4">Entregaremos el pedido a tu domicilio</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-4 col-md-4 col-lg-3 text-center">
-          <div class="row justify-content-center">
-            <div class="col-12 contorno-icono-proceso">
-              <i class="fa-solid fa-pizza-slice icono-proceso"></i>
-            </div>
-            <div class="col-12 col-md-12 col-lg-7 text-center">
-              <p class="mt-4">Ahora podras disfrutar de tu pizza favorita!</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <a href="/menu.html" class="btn-menu">ACCEDE AL MENÚ</a>
-    </section>
+        </nav>
 
-    <!-- LAS PIZZAS MÁS VENDIDAS -->
-    <section class="container my-5 position-relative">
-      <h2 style="font-weight:700;" class="mb-5">LAS MÁS VENDIDAS</h2>
-      <i class="fa-solid fa-arrow-left flecha prev"></i>
-      <div class="row flex-row flex-nowrap scrolling-wrapper gy-5 slider-pizzas">
-        <div class="col-9 col-md-6 col-lg-4 text-center tarjeta-pizza justify-content-center">
-          <div class="contorno-pizza">
-            <a href="" data-bs-toggle="modal" data-bs-target="#pizzaModal" data-bs-whatever="pepperoni">
-              <img src="Images/pizza-pepperoni.jpeg" alt="pizza" class="imagen-tarjeta">
-            </a>
-          </div>
-          <hr class="hr-custom mx-auto">
-          <p class="texto-tarjeta">PEPPERONI</p>
+        <!-- contenidos -->
+        <div class="tab-content" id="nav-tabContent">
+            <!-- pizzas -->
+            <div class="tab-pane fade show active" id="nav-pizza" role="tabpanel" aria-labelledby="nav-pizza-tab" tabindex="0">
+                <div class="row justify-content-around text-center">
+                    <div class="col-12 col-md-6 col-lg-4 p-3">
+                        <div class="tarjeta-menu">
+                            <img src="/Images/pizza-pepperoni.jpeg" alt="pizza-pepperoni">
+                            <div class="row justify-content-between my-3">
+                                <div class="col-5 text-start">
+                                    Pizza Pepperoni
+                                </div>
+                                <div class="col-5">
+                                    <button>Comprar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 p-3">
+                        <div class="tarjeta-menu">
+                            <img src="/Images/pizza-pepperoni.jpeg" alt="pizza-pepperoni">
+                            <div class="row justify-content-between my-3">
+                                <div class="col-5 text-start">
+                                    Pizza Pepperoni
+                                </div>
+                                <div class="col-5">
+                                    <button>Comprar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 p-3">
+                        <div class="tarjeta-menu">
+                            <img src="/Images/pizza-pepperoni.jpeg" alt="pizza-pepperoni">
+                            <div class="row justify-content-between my-3">
+                                <div class="col-5 text-start">
+                                    Pizza Pepperoni
+                                </div>
+                                <div class="col-5">
+                                    <button>Comprar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+
+                </div>
+            </div>
+
+            <!-- pollo -->
+            <div class="tab-pane fade" id="nav-pollo" role="tabpanel" aria-labelledby="nav-pollo-tab" tabindex="0">
+                pollo
+            </div>
+
+            <!-- bebidas -->
+            <div class="tab-pane fade" id="nav-bebidas" role="tabpanel" aria-labelledby="nav-bebidas-tab" tabindex="0">
+                bebidas
+            </div>
+
+            <!-- postres -->
+            <div class="tab-pane fade" id="nav-postres" role="tabpanel" aria-labelledby="nav-postres-tab" tabindex="0">
+                postres
+            </div>
         </div>
-        <div class="col-9 col-md-6 col-lg-4 text-center tarjeta-pizza">
-          <div class="contorno-pizza">
-            <a href="" data-bs-toggle="modal" data-bs-target="#pizzaModal" data-bs-whatever="hawaiana">
-              <img src="Images/pizza-hawaiana.jpg" alt="pizza" class="imagen-tarjeta">
-            </a>
-          </div>
-          <hr class="hr-custom mx-auto">
-          <p class="texto-tarjeta">HAWAIANA</p>
-        </div>
-        <div class="col-9 col-md-6 col-lg-4 text-center tarjeta-pizza">
-          <div class="contorno-pizza">
-            <a href="" data-bs-toggle="modal" data-bs-target="#pizzaModal" data-bs-whatever="mexicana">
-              <img src="Images/pizza-mexicana.jpg" alt="pizza" class="imagen-tarjeta">
-            </a>
-          </div>
-          <hr class="hr-custom mx-auto">
-          <p class="texto-tarjeta">MEXICANA</p>
-        </div>
-        <div class="col-9 col-md-6 col-lg-4 text-center tarjeta-pizza">
-          <div class="contorno-pizza">
-            <a href="" data-bs-toggle="modal" data-bs-target="#pizzaModal" data-bs-whatever="cheesy">
-              <img src="Images/pizza-cheesy.jpg" alt="pizza" class="imagen-tarjeta">
-            </a>
-          </div>
-          <hr class="hr-custom mx-auto">
-          <p class="texto-tarjeta">CHEESY BBQ</p>
-        </div>
-        <div class="col-9 col-md-6 col-lg-4 text-center tarjeta-pizza">
-          <div class="contorno-pizza">
-            <a href="" data-bs-toggle="modal" data-bs-target="#pizzaModal" data-bs-whatever="deluxe">
-              <img src="Images/pizza-deluxe.jpg" alt="pizza" class="imagen-tarjeta">
-            </a>
-          </div>
-          <hr class="hr-custom mx-auto">
-          <p class="texto-tarjeta">DELUXE</p>
-        </div>
-      </div>
-      <i class="fa-solid fa-arrow-right flecha sig"></i>
-    </section>
+        
+    </main>
 
     <!-- FOOTER -->
     <footer class="container-fluid bg-azul-dominos p-5 mt-5 text-center">
@@ -179,10 +140,10 @@
           <a href="">SUCUSALES</a>
         </div>
         <div class="col-4 col-lg-2 text-center">
-          <a href="/sobreNosotros.html">SOBRE NOSOTROS</a>
+          <a href="">SOBRE NOSOTROS</a>
         </div>
         <div class="col-4 col-lg-2 text-center">
-          <a href="/menu.html">MENÚ</a>
+          <a href="">MENÚ</a>
         </div>
       </div>
       <div class="mb-4">

@@ -95,6 +95,7 @@ a.link-navtop:active, a.link-navtop.active{
 }
 
 /* LAS MÁS VENDIDAS */
+/* funcionalidad slider */
 .slider-pizzas{
     display: flex;
     padding: 2px;
@@ -136,6 +137,7 @@ a.link-navtop:active, a.link-navtop.active{
     }
   }
 
+/* tarjetas */
 .tarjeta-pizza{
     padding-bottom: 0.7rem;
     overflow: hidden;
