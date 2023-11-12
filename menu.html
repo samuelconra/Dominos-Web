@@ -144,10 +144,10 @@
             <div class="row">
               <div class="col-6">
                 <label for="cantidadPizza" style="display:inline">Cantidad:</label>
-                <input type="number" name="cantidadPizza" id="cantidadPizza" value="1" min="1" max="5">
+                <input type="number" name="cantidadPizza" id="cantidadPizza" class="cantidadProducto" value="1" min="1" max="5">
                 <br>
                 <label for="tamPizza">Tamaño:</label>
-                <select id="tamPizza" name="tamPizza">
+                <select id="tamPizza" name="tamPizza" class="tamProducto">
                   <option value="0">Individual</option>
                   <option value="1">Mediana (+$60)</option>
                   <option value="2">Grande (+$120)</option>
@@ -160,10 +160,10 @@
           </div>
           <hr>
           <div class="text-center">
-            <button id="btnAgregarPizza">AGREGAR AL CARRITO</button>
+            <button id="btnAgregarPizza" class="btnAgregarProducto">AGREGAR AL CARRITO</button>
           </div>
         </div>
       </div>
-    </div>  
+    </div> 
   </body>
 </html>
