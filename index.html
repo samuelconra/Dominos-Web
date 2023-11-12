@@ -17,7 +17,8 @@
     <!-- SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script defer src="JS/modalFunction.js"></script>
-    <script type="module" src="JS\indexFirestore.js"></script>
+    <!-- <script type="module" src="JS\indexFirestore.js"></script> -->
+    <script type="module" src="JS\menuFirestore.js"></script>
     <script defer src="JS/flechas.js"></script>
 
     <!-- SCRIPTS -->
@@ -217,7 +218,7 @@
             <img class="modal-image" src="" alt="Image" />
           </div>
           <div class="container px-4 mb-2">
-            <h5 class="pizza-tipo">Nombre de pizza</h5>
+            <h5 class="pizza-tipo" id="nombrePizza">Nombre de pizza</h5>
             <p class="pizza-descripcion" style="font-weight: 300;">Texto de producto</p>
           </div>
           <div class="container px-4 mb-2">
@@ -228,13 +229,13 @@
                 <br>
                 <label for="tamPizza">Tamaño:</label>
                 <select id="tamPizza" name="tamPizza">
-                  <option value="Grande">Grande</option>
-                  <option value="Mediana">Mediana</option>
-                  <option value="Individual">Individual</option>
+                  <option value="0">Individual</option>
+                  <option value="1">Mediana (+$60)</option>
+                  <option value="2">Grande (+$120)</option>
                 </select>
               </div>
               <div class="col-6 text-end align-self-end">
-                <p class="pizza-precio" style="font-size: 1.5rem; font-weight: 500">Precio de Pizza</p>
+                <p class="pizza-precio" style="font-size: 1.5rem; font-weight: 500">Subtotal: $<span id="productPrice"></span></p>
               </div>
             </div>
           </div>

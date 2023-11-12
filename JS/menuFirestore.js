@@ -48,3 +48,18 @@ function createProductCard(image, modalName, productName) {
     `;
     return htmlCard;
 }
+
+$("#btnAgregar").click(function () {
+    var name = $("#nombrePizza").text();
+    var size = $("#tamPizza").val();
+    var quantity = $("#cantidadPizza").val();
+    var price = $("#productPrice").text();
+
+    //agregar datos
+    const docRef = addDoc(collection(db, "Carrito"), {
+     Producto: name,
+     Quantity: quantity,
+     Size: size,
+     Price: price,
+    });
+});

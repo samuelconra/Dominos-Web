@@ -57,6 +57,7 @@ pizzaModal.addEventListener('show.bs.modal', function (event) {
     newPrice = originalPrice;
 })
 
+
 $(document).ready(function () {
     
     console.log('Modal here!');
@@ -83,5 +84,4 @@ $(document).ready(function () {
         var subtotal = cantidad * newPrice;
         $("#productPrice").html(subtotal);
     });
-
 });
