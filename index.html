@@ -17,8 +17,19 @@
     <!-- SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script defer src="JS/modalFunction.js"></script>
-    <script type="module" src="JS/dbConnection.js"></script>
+    <script type="module" src="JS\indexFirestore.js"></script>
     <script defer src="JS/flechas.js"></script>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"></script>  
   </head>
   <body>
     <!-- NAVTOP -->
@@ -233,62 +244,6 @@
           </div>
         </div>
       </div>
-    </div>
-    
-
-    <!-- SCRIPTS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-      crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-      crossorigin="anonymous"></script>
-
-    <!-- <script type="module">
-      // Import the functions you need from the SDKs you need
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
-      import { getFirestore, setDoc, doc, collection, addDoc, getDocs, onSnapshot, query } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js';
-    
-      // Your web app's Firebase configuration
-      const firebaseConfig = {
-        apiKey: "AIzaSyCryOzMOuevyB0E0dyQ6LLDjxznRZ6SPNU",
-        authDomain: "dominospizza-38457.firebaseapp.com",
-        projectId: "dominospizza-38457",
-        storageBucket: "dominospizza-38457.appspot.com",
-        messagingSenderId: "144566719191",
-        appId: "1:144566719191:web:d5cadecbe501cf41969692"
-      };
-    
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      // Initialize Cloud Firestore and get a reference to the service
-      const db = getFirestore(app);
-
-      //agregar datos
-      //const docRef = await addDoc(collection(db, "Ventas"), {
-      //  NombreProducto: "Samu",
-      //  Precio: "33.3",
-      //  Cantidad: 2
-      //});
-
-      // single query
-      //console.log("Document written with ID: ", docRef.id);
-      //const querySnapshot = await getDocs(collection(db, "Ventas"));
-      //querySnapshot.forEach((doc) => {
-      //  console.log(`${doc.id} => ${doc.data().Precio}`);
-      //});
-
-      //real time
-      const q = query(collection(db, "Ventas"));
-      const unsubscribe = onSnapshot(q, (querySnapshot) => {        
-        querySnapshot.forEach((doc) => {
-          console.log(`${doc.id} => ${doc.data().Precio}`);
-        });
-        console.log("-------------")
-      });
-    </script> -->
+    </div>  
   </body>
 </html>

@@ -1,4 +1,6 @@
 var pizzaModal = document.getElementById('pizzaModal')
+var originalPrice = 0;
+var newPrice = 0;
 pizzaModal.addEventListener('show.bs.modal', function (event) {
     // Button that triggered the modal
     var button = event.relatedTarget
@@ -11,7 +13,9 @@ pizzaModal.addEventListener('show.bs.modal', function (event) {
     var modalImage = pizzaModal.querySelector('.modal-image');
     var modalPizzaType = pizzaModal.querySelector('.pizza-tipo')
     var modalPizzaDesc = pizzaModal.querySelector('.pizza-descripcion')
-    var modalPizzaPrice = pizzaModal.querySelector('.pizza-precio')
+    var modalPizzaPrice = pizzaModal.querySelector('#productPrice')
+    var modalPizzaCantidad = pizzaModal.querySelector('#cantidadPizza')
+    var modalPizzaTam = pizzaModal.querySelector('#tamPizza')
 
     var imageMap = {
         "pepperoni": "pizza-pepperoni.jpeg",
@@ -30,11 +34,11 @@ pizzaModal.addEventListener('show.bs.modal', function (event) {
     }
 
     var priceMap = {
-        "pepperoni": "$120",
-        "hawaiana": "$129",
-        "mexicana": "$159",
-        "cheesy": "$139",
-        "deluxe": "$559"
+        "pepperoni": "120",
+        "hawaiana": "129",
+        "mexicana": "159",
+        "cheesy": "139",
+        "deluxe": "559"
     }
 
     //   modalTitle.textContent = 'New message to ' + recipient
@@ -44,22 +48,40 @@ pizzaModal.addEventListener('show.bs.modal', function (event) {
     modalImage.alt = recipient;
     modalPizzaType.textContent = 'PIZZA ' + recipient.toUpperCase();
     modalPizzaDesc.textContent = descMap[recipient];
-    modalPizzaPrice.textContent = 'Subtotal: ' + priceMap[recipient];
+    modalPizzaPrice.textContent = priceMap[recipient];
+    modalPizzaCantidad.value = 1;
+    modalPizzaTam.value = 0;
+
+    // initialize product
+    originalPrice = $("#productPrice").text();
+    newPrice = originalPrice;
 })
 
-
-
-$(document).ready(function(){
+$(document).ready(function () {
     
-    $("#btnAgregar").click(function(){
-        console.log("men");
-        console.log($("#cantidadPizza").val())
+    console.log('Modal here!');
+
+    $("#cantidadPizza").change(function () {        
+        var cantidad = $("#cantidadPizza").val();
+        var subtotal = cantidad * newPrice;
+        $("#productPrice").html(subtotal);
     });
 
-    $("#cantidadPizza").change(function(){
-        var string = "Subtotal: $";
+    $("#tamPizza").change(function () {
+        var currentValue = $("#tamPizza").val();
+        newPrice = originalPrice;       
+        if (currentValue == 1) 
+        {
+            newPrice = parseInt(newPrice) + 60;
+        }
+        else if (currentValue == 2)
+        {
+            newPrice = parseInt(newPrice) + 120;
+        }
+        
         var cantidad = $("#cantidadPizza").val();
-        var total = cantidad * 120; 
-        $(".pizza-precio").html(string + total);
+        var subtotal = cantidad * newPrice;
+        $("#productPrice").html(subtotal);
     });
+
 });

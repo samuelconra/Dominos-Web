@@ -18,9 +18,18 @@
     <!-- SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script defer src="JS/modalFunction.js"></script>
-    <script src="JS/dbConnection.js"></script>
+    <script type="module" src="JS\menuFirestore.js"></script>
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"></script>
   </head>
-
   <body>
     <!-- NAVTOP -->
     <header>
@@ -53,58 +62,45 @@
 
     <!-- MENU -->
     <main class="container text-center my-5">
-        <h1 style="font-weight: 700;">NUESTRO MENÚ</h1>
-
-        <!-- nav menu -->
-        <nav>
-            <div class="nav nav-tabs justify-content-center my-4" id="nav-tab" role="tablist">
-              <button class="nav-link active link-menu" id="nav-pizza-tab" data-bs-toggle="tab" data-bs-target="#nav-pizza" type="button" role="tab" aria-controls="nav-pizza" aria-selected="true">Pizzas</button>
-              <button class="nav-link link-menu" id="nav-pollo-tab" data-bs-toggle="tab" data-bs-target="#nav-pollo" type="button" role="tab" aria-controls="nav-pollo" aria-selected="false">Pollo</button>
-              <button class="nav-link link-menu" id="nav-bebidas-tab" data-bs-toggle="tab" data-bs-target="#nav-bebidas" type="button" role="tab" aria-controls="nav-bebidas" aria-selected="false">Bebidas</button>
-              <button class="nav-link link-menu" id="nav-postres-tab" data-bs-toggle="tab" data-bs-target="#nav-postres" type="button" role="tab" aria-controls="nav-postres" aria-selected="false">Postres</button>
-            </div>
-        </nav>
-
-        <!-- contenidos -->
-        <div class="tab-content" id="nav-tabContent">
-            <!-- pizzas -->
-            <div class="tab-pane fade show active" id="nav-pizza" role="tabpanel" aria-labelledby="nav-pizza-tab" tabindex="0">
-                <div class="row justify-content-around text-center">
-                    <div class="col-12 col-md-6 col-lg-4 p-3">
-                        <div class="tarjeta-menu">
-                            <img src="/Images/pizza-pepperoni.jpeg" alt="pizza-pepperoni">
-                            <div class="row mt-3">
-                                <div class="col-6 text-start">
-                                    <p>Pizza Pepperoni</p>
-                                </div>
-                                <div class="col-6 text-end">
-                                    <button data-bs-toggle="modal" data-bs-target="#pizzaModal" data-bs-whatever="pepperoni">Comprar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    
-
-                </div>
-            </div>
-
-            <!-- pollo -->
-            <div class="tab-pane fade" id="nav-pollo" role="tabpanel" aria-labelledby="nav-pollo-tab" tabindex="0">
-                pollo
-            </div>
-
-            <!-- bebidas -->
-            <div class="tab-pane fade" id="nav-bebidas" role="tabpanel" aria-labelledby="nav-bebidas-tab" tabindex="0">
-                bebidas
-            </div>
-
-            <!-- postres -->
-            <div class="tab-pane fade" id="nav-postres" role="tabpanel" aria-labelledby="nav-postres-tab" tabindex="0">
-                postres
-            </div>
+      <h1 style="font-weight: 700;">NUESTRO MENÚ</h1>
+    
+      <!-- nav menu -->
+      <nav>
+        <div class="nav nav-tabs justify-content-center my-4" id="nav-tab" role="tablist">
+          <button class="nav-link active link-menu" id="nav-pizza-tab" data-bs-toggle="tab" data-bs-target="#nav-pizza"
+            type="button" role="tab" aria-controls="nav-pizza" aria-selected="true">Pizzas</button>
+          <button class="nav-link link-menu" id="nav-pollo-tab" data-bs-toggle="tab" data-bs-target="#nav-pollo"
+            type="button" role="tab" aria-controls="nav-pollo" aria-selected="false">Pollo</button>
+          <button class="nav-link link-menu" id="nav-bebidas-tab" data-bs-toggle="tab" data-bs-target="#nav-bebidas"
+            type="button" role="tab" aria-controls="nav-bebidas" aria-selected="false">Bebidas</button>
+          <button class="nav-link link-menu" id="nav-postres-tab" data-bs-toggle="tab" data-bs-target="#nav-postres"
+            type="button" role="tab" aria-controls="nav-postres" aria-selected="false">Postres</button>
         </div>
-        
+      </nav>
+    
+      <!-- contenidos -->
+      <div class="tab-content" id="nav-tabContent">
+        <!-- pizzas -->
+        <div class="tab-pane fade show active" id="nav-pizza" role="tabpanel" aria-labelledby="nav-pizza-tab" tabindex="0">
+          <div class="row justify-content-around text-center" id="menuPizzaDiv"></div>
+        </div>
+    
+        <!-- pollo -->
+        <div class="tab-pane fade" id="nav-pollo" role="tabpanel" aria-labelledby="nav-pollo-tab" tabindex="0">
+          pollo
+        </div>
+    
+        <!-- bebidas -->
+        <div class="tab-pane fade" id="nav-bebidas" role="tabpanel" aria-labelledby="nav-bebidas-tab" tabindex="0">
+          bebidas
+        </div>
+    
+        <!-- postres -->
+        <div class="tab-pane fade" id="nav-postres" role="tabpanel" aria-labelledby="nav-postres-tab" tabindex="0">
+          postres
+        </div>
+      </div>
+    
     </main>
 
     <!-- FOOTER -->
@@ -152,13 +148,13 @@
                 <br>
                 <label for="tamPizza">Tamaño:</label>
                 <select id="tamPizza" name="tamPizza">
-                  <option value="Grande">Grande</option>
-                  <option value="Mediana">Mediana</option>
-                  <option value="Individual">Individual</option>
+                  <option value="0">Individual</option>
+                  <option value="1">Mediana (+$60)</option>
+                  <option value="2">Grande (+$120)</option>
                 </select>
               </div>
               <div class="col-6 text-end align-self-end">
-                <p class="pizza-precio" style="font-size: 1.5rem; font-weight: 500">Precio de Pizza</p>
+                <p class="pizza-precio" style="font-size: 1.5rem; font-weight: 500">Subtotal: $<span id="productPrice"></span></p>
               </div>
             </div>
           </div>
@@ -169,61 +165,5 @@
         </div>
       </div>
     </div>
-    
-
-    <!-- SCRIPTS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-      crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-      crossorigin="anonymous"></script>
-
-    <script type="module">
-      // Import the functions you need from the SDKs you need
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
-      import { getFirestore, setDoc, doc, collection, addDoc, getDocs, onSnapshot, query } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js';
-    
-      // Your web app's Firebase configuration
-      const firebaseConfig = {
-        apiKey: "AIzaSyCryOzMOuevyB0E0dyQ6LLDjxznRZ6SPNU",
-        authDomain: "dominospizza-38457.firebaseapp.com",
-        projectId: "dominospizza-38457",
-        storageBucket: "dominospizza-38457.appspot.com",
-        messagingSenderId: "144566719191",
-        appId: "1:144566719191:web:d5cadecbe501cf41969692"
-      };
-    
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      // Initialize Cloud Firestore and get a reference to the service
-      const db = getFirestore(app);
-
-      //agregar datos
-      //const docRef = await addDoc(collection(db, "Ventas"), {
-      //  NombreProducto: "Samu",
-      //  Precio: "33.3",
-      //  Cantidad: 2
-      //});
-
-      // single query
-      //console.log("Document written with ID: ", docRef.id);
-      //const querySnapshot = await getDocs(collection(db, "Ventas"));
-      //querySnapshot.forEach((doc) => {
-      //  console.log(`${doc.id} => ${doc.data().Precio}`);
-      //});
-
-      //real time
-      const q = query(collection(db, "Ventas"));
-      const unsubscribe = onSnapshot(q, (querySnapshot) => {        
-        querySnapshot.forEach((doc) => {
-          console.log(`${doc.id} => ${doc.data().Precio}`);
-        });
-        console.log("-------------")
-      });
-    </script>
   </body>
 </html>
