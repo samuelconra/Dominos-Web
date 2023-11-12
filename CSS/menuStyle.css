@@ -12,6 +12,21 @@
     border-radius: 15px;
     /* margin: 10px auto; */
 }
+.tarjeta-menu p{
+    color: #002c45;
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+.tarjeta-menu button{
+    background-color: #002c45;
+    color: #f4f5f7;
+    padding: 0.5rem 2rem;
+    border-radius: 2rem;
+    transition: all ease 0.7s;
+}
+.tarjeta-menu button:hover{
+    background-color: #DC2F34;
+}
 
 @media (max-width: 768px) {
     .link-menu{
