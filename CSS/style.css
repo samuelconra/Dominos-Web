@@ -202,7 +202,7 @@ a.link-navtop:active, a.link-navtop.active{
     }
   }
 
-#btnCerrar{
+.btnCerrar{
     background-color: rgba(204, 204, 204, 0.8);
     display: inline;
 }
@@ -227,7 +227,7 @@ a.link-navtop:active, a.link-navtop.active{
     border-radius: 10px;
     padding: 7px;
 }
-#btnAgregar{
+#btnAgregarPizza{
     font-size: 0.9rem;
     padding: 10px 20px;
     background-color: #DC2F34;

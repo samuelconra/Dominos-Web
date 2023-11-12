@@ -10,10 +10,10 @@ pizzaModal.addEventListener('show.bs.modal', function (event) {
     // Update the modal's content.
     //   var modalTitle = pizzaModal.querySelector('.modal-title')
     //   var modalBodyInput = pizzaModal.querySelector('.modal-body input')
-    var modalImage = pizzaModal.querySelector('.modal-image');
-    var modalPizzaType = pizzaModal.querySelector('.pizza-tipo')
-    var modalPizzaDesc = pizzaModal.querySelector('.pizza-descripcion')
-    var modalPizzaPrice = pizzaModal.querySelector('#productPrice')
+    var modalImage = pizzaModal.querySelector('#modalPizza-image');
+    var modalPizzaType = pizzaModal.querySelector('#nombrePizza')
+    var modalPizzaDesc = pizzaModal.querySelector('#pizza-descripcion')
+    var modalPizzaPrice = pizzaModal.querySelector('#pizzaPrice')
     var modalPizzaCantidad = pizzaModal.querySelector('#cantidadPizza')
     var modalPizzaTam = pizzaModal.querySelector('#tamPizza')
 
@@ -34,11 +34,11 @@ pizzaModal.addEventListener('show.bs.modal', function (event) {
     }
 
     var priceMap = {
-        "pepperoni": "120",
-        "hawaiana": "129",
-        "mexicana": "159",
-        "cheesy": "139",
-        "deluxe": "559"
+        "pepperoni": "99",
+        "hawaiana": "109",
+        "mexicana": "109",
+        "cheesy": "119",
+        "deluxe": "139"
     }
 
     //   modalTitle.textContent = 'New message to ' + recipient
@@ -53,19 +53,16 @@ pizzaModal.addEventListener('show.bs.modal', function (event) {
     modalPizzaTam.value = 0;
 
     // initialize product
-    originalPrice = $("#productPrice").text();
+    originalPrice = $("#pizzaPrice").text();
     newPrice = originalPrice;
 })
 
 
 $(document).ready(function () {
-    
-    console.log('Modal here!');
-
     $("#cantidadPizza").change(function () {        
         var cantidad = $("#cantidadPizza").val();
         var subtotal = cantidad * newPrice;
-        $("#productPrice").html(subtotal);
+        $("#pizzaPrice").html(subtotal);
     });
 
     $("#tamPizza").change(function () {
@@ -82,6 +79,6 @@ $(document).ready(function () {
         
         var cantidad = $("#cantidadPizza").val();
         var subtotal = cantidad * newPrice;
-        $("#productPrice").html(subtotal);
+        $("#pizzaPrice").html(subtotal);
     });
 });

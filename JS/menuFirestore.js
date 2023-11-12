@@ -17,8 +17,6 @@ const app = initializeApp(firebaseConfig);
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(app);
 
-console.log('I am in Menu! :)');
-
 // get pizzas
 const querySnapshot = await getDocs(collection(db, "Pizzas"));
 var pizzasHtmlCards = "";
@@ -49,11 +47,11 @@ function createProductCard(image, modalName, productName) {
     return htmlCard;
 }
 
-$("#btnAgregar").click(function () {
+$("#btnAgregarPizza").click(function () {
     var name = $("#nombrePizza").text();
     var size = $("#tamPizza").val();
     var quantity = $("#cantidadPizza").val();
-    var price = $("#productPrice").text();
+    var price = $("#pizzaPrice").text();
 
     //agregar datos
     const docRef = addDoc(collection(db, "Carrito"), {

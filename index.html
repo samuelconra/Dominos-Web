@@ -16,10 +16,10 @@
 
     <!-- SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script defer src="JS/modalFunction.js"></script>
+    <script defer src="JS/modalPizza.js"></script>
     <!-- <script type="module" src="JS\indexFirestore.js"></script> -->
     <script type="module" src="JS\menuFirestore.js"></script>
-    <script defer src="JS/flechas.js"></script>
+    <script defer src="JS/arrowFunction.js"></script>
 
     <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -209,17 +209,17 @@
       </div>
     </footer>
 
-    <!-- MODALES PIZZA -->
+    <!-- MODAL PIZZA -->
     <div class="modal fade" id="pizzaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg" >
         <div class="modal-content" style="overflow: hidden;">
           <div class="contenedor-modal mb-4">
-            <button type="button" class="btn-close sobre-elemento" data-bs-dismiss="modal" aria-label="Close" id="btnCerrar"></button>
-            <img class="modal-image" src="" alt="Image" />
+            <button type="button" class="btn-close sobre-elemento btnCerrar" data-bs-dismiss="modal" aria-label="Close"></button>
+            <img class="modal-image" id="modalPizza-image" alt="Image" />
           </div>
           <div class="container px-4 mb-2">
             <h5 class="pizza-tipo" id="nombrePizza">Nombre de pizza</h5>
-            <p class="pizza-descripcion" style="font-weight: 300;">Texto de producto</p>
+            <p id="pizza-descripcion" style="font-weight: 300;">Texto de producto</p>
           </div>
           <div class="container px-4 mb-2">
             <div class="row">
@@ -235,16 +235,17 @@
                 </select>
               </div>
               <div class="col-6 text-end align-self-end">
-                <p class="pizza-precio" style="font-size: 1.5rem; font-weight: 500">Subtotal: $<span id="productPrice"></span></p>
+                <p class="pizza-precio" style="font-size: 1.5rem; font-weight: 500">Subtotal: $<span id="pizzaPrice"></span></p>
               </div>
             </div>
           </div>
           <hr>
           <div class="text-center">
-            <button id="btnAgregar">AGREGAR AL CARRITO</button>
+            <button id="btnAgregarPizza">AGREGAR AL CARRITO</button>
           </div>
         </div>
       </div>
     </div>  
+  
   </body>
 </html>
