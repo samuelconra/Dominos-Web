@@ -19,15 +19,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script defer src="JS/modalPizza.js"></script>
     <script type="module" src="JS\menuFirestore.js"></script>
+
     <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-      crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
       crossorigin="anonymous"></script>
   </head>
   <body>
@@ -40,20 +35,26 @@
           </a>
 
           <div class="order-md-last my-auto">
-            <a href="" class="icono-navtop"><i class="bi bi-cart-fill mx-2"></i></a>
+            <a href="" class="icono-navtop"><i class="fa-solid fa-cart-shopping mx-2"></i></a>
           </div>
 
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" data-bs-theme="dark">
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav mx-auto">
-              <a class="nav-link link-navtop" href="/index.html">INICIO</a>
-              <a class="nav-link active link-navtop" aria-current="page" href="/menu.html">MENÚ</a>
-              <a class="nav-link link-navtop" href="#">ARMA TU PIZZA</a>
-              <a class="nav-link link-navtop" href="#">SUCURSALES</a>
-              <a class="nav-link link-navtop" href="/sobreNosotros.html">SOBRE NOSOTROS</a>
+          <div class="offcanvas offcanvas-end bg-azul-dominos" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Domino's Pizza</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-theme="dark"></button>
+            </div>
+            <div class="offcanvas-body">
+              <div class="navbar-nav mx-auto">
+                <a class="nav-link link-navtop" href="/index.html">INICIO</a>
+                <a class="nav-link active link-navtop" aria-current="page" href="/menu.html">MENÚ</a>
+                <a class="nav-link link-navtop" href="#">ARMA TU PIZZA</a>
+                <a class="nav-link link-navtop" href="#">SUCURSALES</a>
+                <a class="nav-link link-navtop" href="/sobreNosotros.html">SOBRE NOSOTROS</a>
+              </div>
             </div>
           </div>
         </div>
@@ -160,10 +161,26 @@
           </div>
           <hr>
           <div class="text-center">
-            <button id="btnAgregarPizza" class="btnAgregarProducto">AGREGAR AL CARRITO</button>
+            <button id="btnAgregarPizza" class="btnAgregarProducto" data-bs-target="#agregadoExitosoModal" data-bs-toggle="modal">AGREGAR AL CARRITO</button>
           </div>
         </div>
       </div>
     </div> 
+
+    <!-- MODAL AGREGAR AL CARRITO -->
+    <div class="modal fade" id="agregadoExitosoModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalToggleLabel2" style="color: #097100;">¡PEDIDO AGREGADO CON ÉXITO!</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p style="color: #002c45; font-weight:300">Su pedido ha sido agregado exitosamente, dirijase al carrito de compra para finalizar su compra</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>
