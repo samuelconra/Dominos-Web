@@ -22,7 +22,10 @@ pizzaModal.addEventListener('show.bs.modal', function (event) {
         "hawaiana": "pizza-hawaiana.jpg",
         "mexicana": "pizza-mexicana.jpg",
         "cheesy": "pizza-cheesy.jpg",
-        "deluxe": "pizza-deluxe.jpg"
+        "deluxe": "pizza-deluxe.jpg",
+        "fugazzeta": "pizza-fugazzeta.jpg",
+        "napolitana": "pizza-napolitana.jpg",
+        "texas": "pizza-texas.jpg"
     };
 
     var descMap = {
@@ -30,7 +33,10 @@ pizzaModal.addEventListener('show.bs.modal', function (event) {
         "hawaiana": "La original y clásica masa fresca hecha al momento con orilla dorada y espolvoreada de especias que le dan nuestro toque único.",
         "mexicana": "Descripcion Pizza Mexicana",
         "cheesy": "DESC",
-        "deluxe": "DESC"
+        "deluxe": "DESC",
+        "fugazzeta": "DESC",
+        "napolitana": "DESC",
+        "texas": "DESC"
     }
 
     var priceMap = {
@@ -38,7 +44,10 @@ pizzaModal.addEventListener('show.bs.modal', function (event) {
         "hawaiana": "109",
         "mexicana": "109",
         "cheesy": "119",
-        "deluxe": "139"
+        "deluxe": "139",
+        "fugazzeta": "119",
+        "napolitana": "109",
+        "texas": "119"
     }
 
     //   modalTitle.textContent = 'New message to ' + recipient

@@ -223,7 +223,7 @@
     </footer>
 
     <!-- MODAL PIZZA -->
-    <div class="modal fade" id="pizzaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <section class="modal fade" id="pizzaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg" >
         <div class="modal-content" style="overflow: hidden;">
           <div class="contenedor-modal mb-4">
@@ -231,7 +231,7 @@
             <img class="modal-image" id="modalPizza-image" alt="Image" />
           </div>
           <div class="container px-4 mb-2">
-            <h5 class="pizza-tipo" id="nombrePizza">Nombre de pizza</h5>
+            <h5 class="producto-tipo" id="nombrePizza">Nombre de pizza</h5>
             <p id="pizza-descripcion" style="font-weight: 300;">Texto de producto</p>
           </div>
           <div class="container px-4 mb-2">
@@ -248,7 +248,7 @@
                 </select>
               </div>
               <div class="col-6 text-end align-self-end">
-                <p class="pizza-precio" style="font-size: 1.5rem; font-weight: 500">Subtotal: $<span id="pizzaPrice"></span></p>
+                <p class="productoPrecio">Subtotal: $<span id="pizzaPrice"></span></p>
               </div>
             </div>
           </div>
@@ -258,7 +258,45 @@
           </div>
         </div>
       </div>
-    </div> 
+    </section> 
+
+    <!-- MODAL POLLO -->
+    <section class="modal fade" id="polloModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" >
+        <div class="modal-content" style="overflow: hidden;">
+          <div class="contenedor-modal mb-4">
+            <button type="button" class="btn-close sobre-elemento btnCerrar" data-bs-dismiss="modal" aria-label="Close"></button>
+            <img class="modal-image" id="modalPollo-image" alt="Image" />
+          </div>
+          <div class="container px-4 mb-2">
+            <h5 class="producto-tipo" id="nombrePollo">Nombre de pollo</h5>
+            <p id="pollo-descripcion" style="font-weight: 300;">Texto de producto</p>
+          </div>
+          <div class="container px-4 mb-2">
+            <div class="row">
+              <div class="col-6">
+                <label for="cantidadPollo" style="display:inline">Cantidad:</label>
+                <input type="number" name="cantidadPollo" id="cantidadPollo" class="cantidadProducto" value="1" min="1" max="5">
+                <br>
+                <label for="tamPollo">Tamaño:</label>
+                <select id="tamPollo" name="tamPollo" class="tamProducto">
+                  <option value="0">6 piezas</option>
+                  <option value="1">12 piezas (+$120)</option>
+                  <option value="2">24 piezas (+$240)</option>
+                </select>
+              </div>
+              <div class="col-6 text-end align-self-end">
+                <p class="productoPrecio">Subtotal: $<span id="polloPrice"></span></p>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="text-center">
+            <button id="btnAgregarPollo" class="btnAgregarProducto" data-bs-target="#agregadoExitosoModal" data-bs-toggle="modal">AGREGAR AL CARRITO</button>
+          </div>
+        </div>
+      </div>
+    </section> 
 
     <!-- MODAL AGREGAR AL CARRITO -->
     <div class="modal fade" id="agregadoExitosoModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
