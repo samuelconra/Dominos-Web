@@ -44,7 +44,27 @@
             <a href="" class="icono-navtop"><i class="bi bi-cart-fill mx-2"></i></a>
           </div>
 
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" data-bs-theme="dark">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="offcanvas offcanvas-end bg-azul-dominos" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Domino's Pizza</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-theme="dark"></button>
+            </div>
+            <div class="offcanvas-body">
+              <div class="navbar-nav mx-auto">
+                <a class="nav-link active link-navtop" aria-current="page" href="#">INICIO</a>
+                <a class="nav-link link-navtop" href="/menu.html">MENÚ</a>
+                <a class="nav-link link-navtop" href="#">ARMA TU PIZZA</a>
+                <a class="nav-link link-navtop" href="#">SUCURSALES</a>
+                <a class="nav-link link-navtop" href="/sobreNosotros.html">SOBRE NOSOTROS</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" data-bs-theme="dark">
             <span class="navbar-toggler-icon"></span>
           </button>
 
@@ -56,7 +76,7 @@
               <a class="nav-link link-navtop" href="#">SUCURSALES</a>
               <a class="nav-link link-navtop" href="/sobreNosotros.html">SOBRE NOSOTROS</a>
             </div>
-          </div>
+          </div> -->
         </div>
       </nav>
     </header>
@@ -240,11 +260,67 @@
           </div>
           <hr>
           <div class="text-center">
-            <button id="btnAgregarPizza" class="btnAgregarProducto">AGREGAR AL CARRITO</button>
+            <button id="btnAgregarPizza" class="btnAgregarProducto" data-bs-target="#agregadoExitosoModal" data-bs-toggle="modal">AGREGAR AL CARRITO</button>
           </div>
         </div>
       </div>
-    </div>  
+    </div> 
+
+    <!-- MODAL AGREGAR AL CARRITO -->
+    <div class="modal fade" id="agregadoExitosoModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Hide this modal and show the first with the button below.
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Modal 1</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Show a second modal and hide this one with the button below.
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Open second modal</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Hide this modal and show the first with the button below.
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Open first modal</button>
   
   </body>
 </html>
