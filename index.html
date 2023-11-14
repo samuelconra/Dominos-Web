@@ -17,6 +17,7 @@
     <!-- SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script defer src="JS/modalPizza.js"></script>
+    <script defer src="JS/modalPollo.js"></script>
     <script type="module" src="JS\menuFirestore.js"></script>
     <script defer src="JS/arrowFunction.js"></script>
 
@@ -30,15 +31,15 @@
     <header>
       <nav class="navbar navbar-expand-lg sticky-top bg-azul-dominos">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/index.html"> 
+          <a class="navbar-brand order-1 order-md-1 order-lg-0" href="/index.html"> 
             <img src="Images/DominosLogo-Chico.png" alt="Dominos-Logo" style="width: 40px;">
           </a>
 
-          <div class="order-md-last my-auto">
+          <div class="my-auto order-2 order-md-2 order-lg-2">
             <a href="" class="icono-navtop"><i class="fa-solid fa-cart-shopping mx-2"></i></a>
           </div>
 
-          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" data-bs-theme="dark">
+          <button class="navbar-toggler order-0 order-md-0 order-lg-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" data-bs-theme="dark">
             <span class="navbar-toggler-icon"></span>
           </button>
 
@@ -242,9 +243,9 @@
                 <br>
                 <label for="tamPizza">Tamaño:</label>
                 <select id="tamPizza" name="tamPizza" class="tamProducto">
-                  <option value="0">Individual</option>
-                  <option value="1">Mediana (+$60)</option>
-                  <option value="2">Grande (+$120)</option>
+                  <option value="Individual">Individual</option>
+                  <option value="Mediana">Mediana (+$60)</option>
+                  <option value="Grande">Grande (+$120)</option>
                 </select>
               </div>
               <div class="col-6 text-end align-self-end">
@@ -280,9 +281,9 @@
                 <br>
                 <label for="tamPollo">Tamaño:</label>
                 <select id="tamPollo" name="tamPollo" class="tamProducto">
-                  <option value="0">6 piezas</option>
-                  <option value="1">12 piezas (+$120)</option>
-                  <option value="2">24 piezas (+$240)</option>
+                  <option value="6 piezas">6 piezas</option>
+                  <option value="12 piezas">12 piezas (+$120)</option>
+                  <option value="24 piezas">24 piezas (+$240)</option>
                 </select>
               </div>
               <div class="col-6 text-end align-self-end">

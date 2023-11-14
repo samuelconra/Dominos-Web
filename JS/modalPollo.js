@@ -21,13 +21,6 @@ polloModal.addEventListener('show.bs.modal', function (event) {
         "boneless-naturales": "Boneless Naturales"
     }
 
-    var imageMap = {
-        "alitas-bbq": "alitas-bbq.jpg",
-        "mango-habanero": "mango-habanero.jpg",
-        "boneless-bbq": "boneless-bbq.jpg",
-        "boneless-naturales": "boneless-naturales.jpg"
-    }
-
     var descMap = {
         "alitas-bbq": "DESC",
         "mango-habanero": "DESC",
@@ -48,10 +41,10 @@ polloModal.addEventListener('show.bs.modal', function (event) {
     modalDescr.textContent = descMap[recipient];
     modalPrecio.textContent = priceMap[recipient];
     modalCantidad.value = 1;
-    modalTam.value = 0;
+    modalTam.value = '6 piezas';
 
     // initialize product
-    originalPrice = $("#pizzaPrice").text();
+    originalPrice = $("#polloPrice").text();
     newPrice = originalPrice;
 })
 
@@ -66,11 +59,11 @@ $(document).ready(function () {
     $("#tamPollo").change(function () {
         var currentValue = $("#tamPollo").val();
         newPrice = originalPrice;       
-        if (currentValue == 1) 
+        if (currentValue == '12 piezas') 
         {
             newPrice = parseInt(newPrice) + 79;
         }
-        else if (currentValue == 2)
+        else if (currentValue == '24 piezas')
         {
             newPrice = parseInt(newPrice) + 237;
         }

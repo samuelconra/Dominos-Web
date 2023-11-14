@@ -18,27 +18,42 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // get pizzas
-const querySnapshot = await getDocs(collection(db, "Pizzas"));
+const querySnapshotPizzas = await getDocs(collection(db, "Pizzas"));
 var pizzasHtmlCards = "";
-querySnapshot.forEach((doc) => {
-    pizzasHtmlCards += createProductCard(doc.data().Imagen, doc.data().Modal, doc.data().Nombre);
+querySnapshotPizzas.forEach((doc) => {
+    pizzasHtmlCards += createProductCard(doc.data().Imagen, doc.data().Modal, doc.data().Nombre, 'pizza');
+});
+
+// get pollo
+const querySnapshotPollo = await getDocs(collection(db, "Pollo"));
+var polloHtmlCards = "";
+querySnapshotPollo.forEach((doc) => {
+    polloHtmlCards += createProductCard(doc.data().Imagen, doc.data().Modal, doc.data().Nombre, 'pollo');
+});
+
+// get bebidas
+const querySnapshotBebidas = await getDocs(collection(db, "Bebidas"));
+var bebidasHtmlCards = "";
+querySnapshotBebidas.forEach((doc) => {
+    bebidasHtmlCards += createProductCard(doc.data().Imagen, doc.data().Modal, doc.data().Nombre, 'bebidas');
 });
 
 // var demoCard = createProductCard("pizza-pepperoni.jpeg", "pepperoni", "Pizza Pepperoni");
-
 $("#menuPizzaDiv").html(pizzasHtmlCards);
+$("#menuPolloDiv").html(polloHtmlCards);
+$("#menuBebidasDiv").html(bebidasHtmlCards);
 
-function createProductCard(image, modalName, productName) {
+function createProductCard(image, modalName, productName, modalDestination) {
     var htmlCard = `
     <div class="col-12 col-md-6 col-lg-4 p-3">
         <div class="tarjeta-menu">
-            <img src="/Images/${image}" alt="producto">
+            <img src="/Images/${image}" alt="${modalName}">
             <div class="row mt-3">
                 <div class="col-6 text-start">
                     <p>${productName}</p>
                 </div>
                 <div class="col-6 text-end">
-                    <button data-bs-toggle="modal" data-bs-target="#pizzaModal" class="btnComprar" data-bs-whatever="${modalName}">Comprar</button>
+                    <button data-bs-toggle="modal" data-bs-target="#${modalDestination}Modal" class="btnComprar" data-bs-whatever="${modalName}">Comprar</button>
                 </div>
             </div>
         </div>
@@ -47,11 +62,32 @@ function createProductCard(image, modalName, productName) {
     return htmlCard;
 }
 
+
+
+
+
+// FUNCIONALIDAD BOTONES AGREGAR
+
 $("#btnAgregarPizza").click(function () {
     var name = $("#nombrePizza").text();
     var size = $("#tamPizza").val();
     var quantity = $("#cantidadPizza").val();
     var price = $("#pizzaPrice").text();
+
+    //agregar datos
+    const docRef = addDoc(collection(db, "Carrito"), {
+     Producto: name,
+     Quantity: quantity,
+     Size: size,
+     Price: price,
+    });
+});
+
+$("#btnAgregarPollo").click(function () {
+    var name = $("#nombrePollo").text();
+    var size = $("#tamPollo").val();
+    var quantity = $("#cantidadPollo").val();
+    var price = $("#polloPrice").text();
 
     //agregar datos
     const docRef = addDoc(collection(db, "Carrito"), {

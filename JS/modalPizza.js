@@ -59,7 +59,7 @@ pizzaModal.addEventListener('show.bs.modal', function (event) {
     modalPizzaDesc.textContent = descMap[recipient];
     modalPizzaPrice.textContent = priceMap[recipient];
     modalPizzaCantidad.value = 1;
-    modalPizzaTam.value = 0;
+    modalPizzaTam.value = 'Individual';
 
     // initialize product
     originalPrice = $("#pizzaPrice").text();
@@ -77,11 +77,11 @@ $(document).ready(function () {
     $("#tamPizza").change(function () {
         var currentValue = $("#tamPizza").val();
         newPrice = originalPrice;       
-        if (currentValue == 1) 
+        if (currentValue == 'Mediana') 
         {
             newPrice = parseInt(newPrice) + 60;
         }
-        else if (currentValue == 2)
+        else if (currentValue == 'Grande')
         {
             newPrice = parseInt(newPrice) + 120;
         }

@@ -18,6 +18,7 @@
     <!-- SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script defer src="JS/modalPizza.js"></script>
+    <script defer src="JS/modalPollo.js"></script>
     <script type="module" src="JS\menuFirestore.js"></script>
 
     <!-- SCRIPTS -->
@@ -30,15 +31,15 @@
     <header>
       <nav class="navbar navbar-expand-lg sticky-top bg-azul-dominos">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/index.html"> 
+          <a class="navbar-brand order-1 order-md-1 order-lg-0" href="/index.html"> 
             <img src="Images/DominosLogo-Chico.png" alt="Dominos-Logo" style="width: 40px;">
           </a>
 
-          <div class="order-md-last my-auto">
+          <div class="my-auto order-2 order-md-2 order-lg-2">
             <a href="" class="icono-navtop"><i class="fa-solid fa-cart-shopping mx-2"></i></a>
           </div>
 
-          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" data-bs-theme="dark">
+          <button class="navbar-toggler order-0 order-md-0 order-lg-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" data-bs-theme="dark">
             <span class="navbar-toggler-icon"></span>
           </button>
 
@@ -93,7 +94,7 @@
     
         <!-- bebidas -->
         <div class="tab-pane fade" id="nav-bebidas" role="tabpanel" aria-labelledby="nav-bebidas-tab" tabindex="0">
-          bebidas
+          <div class="row text-center" id="menuBebidasDiv"></div>
         </div>
     
         <!-- postres -->
@@ -130,7 +131,7 @@
     </footer>
 
     <!-- MODAL PIZZA -->
-    <div class="modal fade" id="pizzaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <section class="modal fade" id="pizzaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg" >
         <div class="modal-content" style="overflow: hidden;">
           <div class="contenedor-modal mb-4">
@@ -138,7 +139,7 @@
             <img class="modal-image" id="modalPizza-image" alt="Image" />
           </div>
           <div class="container px-4 mb-2">
-            <h5 class="pizza-tipo" id="nombrePizza">Nombre de pizza</h5>
+            <h5 class="producto-tipo" id="nombrePizza">Nombre de pizza</h5>
             <p id="pizza-descripcion" style="font-weight: 300;">Texto de producto</p>
           </div>
           <div class="container px-4 mb-2">
@@ -149,13 +150,13 @@
                 <br>
                 <label for="tamPizza">Tamaño:</label>
                 <select id="tamPizza" name="tamPizza" class="tamProducto">
-                  <option value="0">Individual</option>
-                  <option value="1">Mediana (+$60)</option>
-                  <option value="2">Grande (+$120)</option>
+                  <option value="Individual">Individual</option>
+                  <option value="Mediana">Mediana (+$60)</option>
+                  <option value="Grande">Grande (+$120)</option>
                 </select>
               </div>
               <div class="col-6 text-end align-self-end">
-                <p class="pizza-precio" style="font-size: 1.5rem; font-weight: 500">Subtotal: $<span id="pizzaPrice"></span></p>
+                <p class="productoPrecio">Subtotal: $<span id="pizzaPrice"></span></p>
               </div>
             </div>
           </div>
@@ -165,7 +166,83 @@
           </div>
         </div>
       </div>
-    </div> 
+    </section> 
+
+    <!-- MODAL POLLO -->
+    <section class="modal fade" id="polloModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" >
+        <div class="modal-content" style="overflow: hidden;">
+          <div class="contenedor-modal mb-4">
+            <button type="button" class="btn-close sobre-elemento btnCerrar" data-bs-dismiss="modal" aria-label="Close"></button>
+            <img class="modal-image" id="modalPollo-image" alt="Image" />
+          </div>
+          <div class="container px-4 mb-2">
+            <h5 class="producto-tipo" id="nombrePollo">Nombre de pollo</h5>
+            <p id="pollo-descripcion" style="font-weight: 300;">Texto de producto</p>
+          </div>
+          <div class="container px-4 mb-2">
+            <div class="row">
+              <div class="col-6">
+                <label for="cantidadPollo" style="display:inline">Cantidad:</label>
+                <input type="number" name="cantidadPollo" id="cantidadPollo" class="cantidadProducto" value="1" min="1" max="5">
+                <br>
+                <label for="tamPollo">Tamaño:</label>
+                <select id="tamPollo" name="tamPollo" class="tamProducto">
+                  <option value="6 piezas">6 piezas</option>
+                  <option value="12 piezas">12 piezas (+$120)</option>
+                  <option value="24 piezas">24 piezas (+$240)</option>
+                </select>
+              </div>
+              <div class="col-6 text-end align-self-end">
+                <p class="productoPrecio">Subtotal: $<span id="polloPrice"></span></p>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="text-center">
+            <button id="btnAgregarPollo" class="btnAgregarProducto" data-bs-target="#agregadoExitosoModal" data-bs-toggle="modal">AGREGAR AL CARRITO</button>
+          </div>
+        </div>
+      </div>
+    </section> 
+
+    <!-- MODAL BEBIDAS -->
+    <section class="modal fade" id="bebidasModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" >
+        <div class="modal-content" style="overflow: hidden;">
+          <div class="contenedor-modal mb-4">
+            <button type="button" class="btn-close sobre-elemento btnCerrar" data-bs-dismiss="modal" aria-label="Close"></button>
+            <img class="modal-image" id="modalBebida-image" alt="Image" />
+          </div>
+          <div class="container px-4 mb-2">
+            <h5 class="producto-tipo" id="nombreBebida">Nombre de bebida</h5>
+            <p id="bebida-descripcion" style="font-weight: 300;">Texto de producto</p>
+          </div>
+          <div class="container px-4 mb-2">
+            <div class="row">
+              <div class="col-6">
+                <label for="cantidadBebida" style="display:inline">Cantidad:</label>
+                <input type="number" name="cantidadBebida" id="cantidadBebida" class="cantidadProducto" value="1" min="1" max="10">
+                <br>
+                <label for="tamBebida">Tamaño:</label>
+                <select id="tamBebida" name="tamBebida" class="tamProducto">
+                  <option value="600 ml">600 ml</option>
+                  <option value="1 litro">1 litro (+$20)</option>
+                  <option value="2 lts">2 lts (+$40)</option>
+                </select>
+              </div>
+              <div class="col-6 text-end align-self-end">
+                <p class="productoPrecio">Subtotal: $<span id="bebidaPrice"></span></p>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="text-center">
+            <button id="btnAgregarBebida" class="btnAgregarProducto" data-bs-target="#agregadoExitosoModal" data-bs-toggle="modal">AGREGAR AL CARRITO</button>
+          </div>
+        </div>
+      </div>
+    </section> 
 
     <!-- MODAL AGREGAR AL CARRITO -->
     <div class="modal fade" id="agregadoExitosoModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
