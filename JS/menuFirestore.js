@@ -38,10 +38,18 @@ querySnapshotBebidas.forEach((doc) => {
     bebidasHtmlCards += createProductCard(doc.data().Imagen, doc.data().Modal, doc.data().Nombre, 'bebidas');
 });
 
+// get postres
+const querySnapshotPostres = await getDocs(collection(db, "Postres"));
+var postresHtmlCards = "";
+querySnapshotPostres.forEach((doc) => {
+    postresHtmlCards += createProductCard(doc.data().Imagen, doc.data().Modal, doc.data().Nombre, 'postre');
+});
+
 // var demoCard = createProductCard("pizza-pepperoni.jpeg", "pepperoni", "Pizza Pepperoni");
 $("#menuPizzaDiv").html(pizzasHtmlCards);
 $("#menuPolloDiv").html(polloHtmlCards);
 $("#menuBebidasDiv").html(bebidasHtmlCards);
+$("#menuPostreDiv").html(postresHtmlCards);
 
 function createProductCard(image, modalName, productName, modalDestination) {
     var htmlCard = `
