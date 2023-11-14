@@ -17,6 +17,10 @@ const app = initializeApp(firebaseConfig);
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(app);
 
+
+const querySnapshotCarrito = await getDocs(collection(db, "Carrito"));
+$('#cantidad-carrito').html(querySnapshotCarrito.size)
+
 // get pizzas
 const querySnapshotPizzas = await getDocs(collection(db, "Pizzas"));
 var pizzasHtmlCards = "";
@@ -70,10 +74,6 @@ function createProductCard(image, modalName, productName, modalDestination) {
     return htmlCard;
 }
 
-
-
-
-
 // FUNCIONALIDAD BOTONES AGREGAR
 
 $("#btnAgregarPizza").click(function () {
@@ -105,3 +105,20 @@ $("#btnAgregarPollo").click(function () {
      Price: price,
     });
 });
+
+$("#btnCerrarCompra").click(function () {
+    $('#cantidad-carrito').html(querySnapshotCarrito.size)
+})
+
+
+// const querySnapshot1 = await getDocs(collection(db, "Carrito"));
+// const querySnapshotCarrito = query(collection(db, "Carrito"));
+// const cantidadCarrito = onSnapshot(querySnapshotCarrito, (querySnapshot1) => {
+//     $('#cantidad-carrito').html(querySnapshotCarrito.size)
+// });
+
+
+// const querySnapshotCarrito = await getDocs(collection(db, "Carrito"));
+// $(document).ready(function () {
+//     $('#cantidad-carrito').html(querySnapshotCarrito.size)
+// });

@@ -34,9 +34,9 @@ const db = getFirestore(app);
 //real time
 const q = query(collection(db, "Ventas"));
 const unsubscribe = onSnapshot(q, (querySnapshot) => {
-querySnapshot.forEach((doc) => {
-    console.log(`${doc.id} => ${doc.data().Precio}`);
-});
+    querySnapshot.forEach((doc) => {
+        console.log(`${doc.id} => ${doc.data().Precio}`);
+    });
 console.log("-------------")
 });
 

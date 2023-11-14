@@ -35,8 +35,9 @@
             <img src="Images/DominosLogo-Chico.png" alt="Dominos-Logo" style="width: 40px;">
           </a>
 
-          <div class="my-auto order-2 order-md-2 order-lg-2">
+          <div class="contenedor-carrito my-auto order-2 order-md-2 order-lg-2">
             <a href="" class="icono-navtop"><i class="fa-solid fa-cart-shopping mx-2"></i></a>
+            <p id="cantidad-carrito"></p>
           </div>
 
           <button class="navbar-toggler order-0 order-md-0 order-lg-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" data-bs-theme="dark">
@@ -202,17 +203,17 @@
     <footer class="container-fluid bg-azul-dominos p-5 mt-5 text-center">
       <div class="row justify-content-center mb-3">
         <div class="col-4 col-lg-2 text-center">
-          <a href="">SUCUSALES</a>
+          <a href="" class="link-footer">SUCUSALES</a>
         </div>
         <div class="col-4 col-lg-2 text-center">
-          <a href="/sobreNosotros.html">SOBRE NOSOTROS</a>
+          <a href="/sobreNosotros.html" class="link-footer">SOBRE NOSOTROS</a>
         </div>
         <div class="col-4 col-lg-2 text-center">
-          <a href="/menu.html">MENÚ</a>
+          <a href="/menu.html" class="link-footer">MENÚ</a>
         </div>
       </div>
       <div class="mb-4">
-        <a href="">POLÍTICA DE PRIVACIDAD Y TÉRMINOS Y CONDICIONES</a>
+        <a href="" class="link-footer">POLÍTICA DE PRIVACIDAD Y TÉRMINOS Y CONDICIONES</a>
       </div>
 
       <div class="text-center">
@@ -305,7 +306,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="exampleModalToggleLabel2" style="color: #097100;">¡PEDIDO AGREGADO CON ÉXITO!</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="btnCerrarCompra"></button>
           </div>
           <div class="modal-body">
             <p style="color: #002c45; font-weight:300">Su pedido ha sido agregado exitosamente, dirijase al carrito de compra para finalizar su compra</p>

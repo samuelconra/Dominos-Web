@@ -49,25 +49,47 @@ a.link-navtop:link, a.link-navtop:visited{
     color: #f4f5f7;
     padding: 0.6rem;
     margin: 0 8px;
-    font-weight: 300;
-    opacity: 0.8;
+    font-weight: 400;
+    opacity: 0.65;
     transition: all ease 1s;
+    border-radius: 0.5rem;
 }
 a.link-navtop:hover{
     color: #f4f5f7 !important;
-    font-weight: 500;
+    font-weight: 700;
     opacity: 1;
+    background-color: rgb(0, 44, 69, 0.4);
 }
 a.link-navtop:active, a.link-navtop.active{
-    border-bottom: #f4f5f7 solid 2px;
+    /* border-bottom: #f4f5f7 solid 2px; */
+    background-color: rgb(0, 44, 69, 0.4);
     color: #f4f5f7 !important;
     font-weight: 500;
     opacity: 1;
 }
 
+.contenedor-carrito{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    overflow: hidden;
+}
 .icono-navtop{
     color: #f4f5f7 !important;
-    font-size: 1.3rem;
+    font-size: 1.6rem;
+
+    background-size: cover;
+    transition: all ease 0.7s;
+}
+#cantidad-carrito{
+    font-size: 0.7rem;
+    background-color: #DC2F34;
+    border-radius: 2rem;
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 0;
+    right: 5px;
 }
 .navbar-toggler{
     border: solid 1px rgb(244, 245, 247, 0.5);
@@ -150,6 +172,10 @@ a.link-navtop:active, a.link-navtop.active{
 .contorno-pizza{
     border-radius: 10px;
     overflow: hidden;
+    transition: all ease 0.7s;
+}
+.contorno-pizza:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .imagen-tarjeta:hover{
     transform: scale(1.15);
@@ -173,9 +199,11 @@ a.link-navtop:active, a.link-navtop.active{
 
 /* FOOTER */
 .link-footer{
-    display: inline;
-    margin-right: 70px;
-    opacity: 0.7;
+    opacity: 0.8;
+}
+.link-footer:hover{
+    opacity: 1;
+    text-decoration: dashed;
 }
 .rs-footer{
     width: 35px;
