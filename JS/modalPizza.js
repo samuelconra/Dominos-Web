@@ -53,7 +53,7 @@ pizzaModal.addEventListener('show.bs.modal', function (event) {
     //   modalTitle.textContent = 'New message to ' + recipient
     //   modalBodyInput.value = recipient
 
-    modalImage.src = 'Images/' + imageMap[recipient] || 'imagen_defecto.jpg';
+    modalImage.src = 'Images/Food/' + imageMap[recipient] || 'imagen_defecto.jpg';
     modalImage.alt = recipient;
     modalPizzaType.textContent = 'PIZZA ' + recipient.toUpperCase();
     modalPizzaDesc.textContent = descMap[recipient];

@@ -59,7 +59,7 @@ function createProductCard(image, modalName, productName, modalDestination) {
     var htmlCard = `
     <div class="col-12 col-md-6 col-lg-4 p-3">
         <div class="tarjeta-menu">
-            <img src="/Images/${image}" alt="${modalName}">
+            <img src="/Images/Food/${image}" alt="${modalName}">
             <div class="row mt-3">
                 <div class="col-6 text-start">
                     <p>${productName}</p>

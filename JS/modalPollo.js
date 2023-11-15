@@ -35,7 +35,7 @@ polloModal.addEventListener('show.bs.modal', function (event) {
         "boneless-naturales": "89"
     }
 
-    modalImagen.src = 'Images/' + recipient + '.jpg' || 'imagen_defecto.jpg';
+    modalImagen.src = 'Images/Food/' + recipient + '.jpg' || 'imagen_defecto.jpg';
     modalImagen.alt = recipient;
     modalNombre.textContent = nameMap[recipient];
     modalDescr.textContent = descMap[recipient];
