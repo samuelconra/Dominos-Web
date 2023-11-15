@@ -11,9 +11,12 @@
     <!-- LINKS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/armaPizzaStyle.css">
     <link rel="icon" type="image/png" href="Images/DominosLogo-Chico.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="module" src="JS\menuFirestore.js"></script>
     <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
@@ -28,8 +31,9 @@
             <img src="Images/DominosLogo-Chico.png" alt="Dominos-Logo" style="width: 40px;">
           </a>
 
-          <div class="my-auto order-2 order-md-2 order-lg-2">
+          <div class="contenedor-carrito my-auto order-2 order-md-2 order-lg-2">
             <a href="" class="icono-navtop"><i class="fa-solid fa-cart-shopping mx-2"></i></a>
+            <p id="cantidad-carrito"></p>
           </div>
 
           <button class="navbar-toggler order-0 order-md-0 order-lg-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" data-bs-theme="dark">
@@ -45,15 +49,52 @@
               <div class="navbar-nav mx-auto">
                 <a class="nav-link link-navtop" href="/index.html">INICIO</a>
                 <a class="nav-link link-navtop" href="/menu.html">MENÚ</a>
-                <a class="nav-link link-navtop" href="#">ARMA TU PIZZA</a>
+                <a class="nav-link active link-navtop" aria-current="page" href="/arma-tu-pizza.html">ARMA TU PIZZA</a>
                 <a class="nav-link link-navtop" href="#">SUCURSALES</a>
-                <a class="nav-link active link-navtop" aria-current="page" href="/sobreNosotros.html">SOBRE NOSOTROS</a>
+                <a class="nav-link link-navtop" href="/sobreNosotros.html">SOBRE NOSOTROS</a>
               </div>
             </div>
           </div>
         </div>
       </nav>
     </header>
+
+    <!-- MENU -->
+    <main class="container text-center my-5">
+      <h1 style="font-weight: 700;">ARMA TU PIZZA</h1>
+    
+      <!-- nav menu -->
+      <nav>
+        <div class="nav nav-tabs justify-content-center my-4" id="nav-tab" role="tablist">
+          <button class="nav-link active link-menu" id="nav-masa-tab" data-bs-toggle="tab" data-bs-target="#nav-masa"
+            type="button" role="tab" aria-controls="nav-masa" aria-selected="true">TAMAÑO Y MASA</button>
+          <button class="nav-link link-menu" id="nav-queso-tab" data-bs-toggle="tab" data-bs-target="#nav-queso"
+            type="button" role="tab" aria-controls="nav-queso" aria-selected="false">QUESO Y SALSA</button>
+          <button class="nav-link link-menu" id="nav-ingredientes-tab" data-bs-toggle="tab" data-bs-target="#nav-ingredientes"
+            type="button" role="tab" aria-controls="nav-ingredientes" aria-selected="false">INGREDIENTES</button>
+        </div>
+      </nav>
+    
+      <!-- CONTENIDOS -->
+      <div class="tab-content" id="nav-tabContent">
+        <!-- masa -->
+        <div class="tab-pane fade show active" id="nav-masa" role="tabpanel" aria-labelledby="nav-masa-tab" tabindex="0">
+          <div class="row text-center" id="masaDiv"></div>
+        </div>
+    
+        <!-- queso -->
+        <div class="tab-pane fade" id="nav-queso" role="tabpanel" aria-labelledby="nav-queso-tab" tabindex="0">
+          <div class="row text-center" id="quesoDiv"></div>
+        </div>
+    
+        <!-- ingredientes -->
+        <div class="tab-pane fade" id="nav-ingredientes" role="tabpanel" aria-labelledby="nav-ingredientes-tab" tabindex="0">
+          <div class="row text-center" id="ingredientesDiv"></div>
+        </div>
+  
+      </div>
+    
+    </main>
 
     <!-- FOOTER -->
     <footer class="container-fluid bg-azul-dominos p-5 text-center">

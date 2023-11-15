@@ -17,7 +17,7 @@ const app = initializeApp(firebaseConfig);
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(app);
 
-
+// Actualiza cantidad de productos
 const querySnapshotCarrito = await getDocs(collection(db, "Carrito"));
 $('#cantidad-carrito').html(querySnapshotCarrito.size)
 
@@ -85,9 +85,9 @@ $("#btnAgregarPizza").click(function () {
     //agregar datos
     const docRef = addDoc(collection(db, "Carrito"), {
      Producto: name,
-     Quantity: quantity,
-     Size: size,
-     Price: price,
+     Cantidad: quantity,
+     Tamaño: size,
+     Precio: price,
     });
 });
 
@@ -100,9 +100,37 @@ $("#btnAgregarPollo").click(function () {
     //agregar datos
     const docRef = addDoc(collection(db, "Carrito"), {
      Producto: name,
-     Quantity: quantity,
-     Size: size,
-     Price: price,
+     Cantidad: quantity,
+     Tamaño: size,
+     Precio: price,
+    });
+});
+
+$("#btnAgregarBebida").click(function () {
+    var name = $("#nombreBebida").text();
+    var size = $("#tamBebida").val();
+    var quantity = $("#cantidadBebida").val();
+    var price = $("#bebidaPrice").text();
+
+    //agregar datos
+    const docRef = addDoc(collection(db, "Carrito"), {
+     Producto: name,
+     Cantidad: quantity,
+     Tamaño: size,
+     Precio: price,
+    });
+});
+
+$("#btnAgregarPostre").click(function () {
+    var name = $("#nombrePostre").text();
+    var quantity = $("#cantidadPostre").val();
+    var price = $("#postrePrice").text();
+
+    //agregar datos
+    const docRef = addDoc(collection(db, "Carrito"), {
+     Producto: name,
+     Cantidad: quantity,
+     Precio: price,
     });
 });
 

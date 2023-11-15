@@ -19,6 +19,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script defer src="JS/modalPizza.js"></script>
     <script defer src="JS/modalPollo.js"></script>
+    <script defer src="JS/modalPostre.js"></script>
+    <script defer src="JS/modalBebida.js"></script>
     <script type="module" src="JS\menuFirestore.js"></script>
 
     <!-- SCRIPTS -->
@@ -35,8 +37,9 @@
             <img src="Images/DominosLogo-Chico.png" alt="Dominos-Logo" style="width: 40px;">
           </a>
 
-          <div class="my-auto order-2 order-md-2 order-lg-2">
+          <div class="contenedor-carrito my-auto order-2 order-md-2 order-lg-2">
             <a href="" class="icono-navtop"><i class="fa-solid fa-cart-shopping mx-2"></i></a>
+            <p id="cantidad-carrito"></p>
           </div>
 
           <button class="navbar-toggler order-0 order-md-0 order-lg-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" data-bs-theme="dark">
@@ -52,7 +55,7 @@
               <div class="navbar-nav mx-auto">
                 <a class="nav-link link-navtop" href="/index.html">INICIO</a>
                 <a class="nav-link active link-navtop" aria-current="page" href="/menu.html">MENÚ</a>
-                <a class="nav-link link-navtop" href="#">ARMA TU PIZZA</a>
+                <a class="nav-link link-navtop" href="/arma-tu-pizza.html">ARMA TU PIZZA</a>
                 <a class="nav-link link-navtop" href="#">SUCURSALES</a>
                 <a class="nav-link link-navtop" href="/sobreNosotros.html">SOBRE NOSOTROS</a>
               </div>

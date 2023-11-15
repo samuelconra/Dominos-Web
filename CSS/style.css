@@ -86,8 +86,8 @@ a.link-navtop:active, a.link-navtop.active{
     background-color: #DC2F34;
     border-radius: 2rem;
     position: absolute;
-    width: 15px;
-    height: 15px;
+    width: 15.8px;
+    height: 15.8px;
     top: 0;
     right: 5px;
 }
@@ -203,7 +203,7 @@ a.link-navtop:active, a.link-navtop.active{
 }
 .link-footer:hover{
     opacity: 1;
-    text-decoration: dashed;
+    text-decoration:dotted !important;
 }
 .rs-footer{
     width: 35px;
@@ -263,7 +263,10 @@ a.link-navtop:active, a.link-navtop.active{
     border-radius: 30px;
     margin-bottom: 20px;
     transition: all ease 0.8s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 .btnAgregarProducto:hover{
-    background-color: #9f1419;
+    box-shadow: none;
+    /* background-color: #002c45; */
 }

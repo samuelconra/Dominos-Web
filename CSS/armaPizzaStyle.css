@@ -1,0 +1,9 @@
+.link-menu{
+    color: #002c45 !important;
+    margin: 0 25px;
+}
+@media (max-width: 768px) {
+    .link-menu{
+        margin: 0 2px;
+    }
+}

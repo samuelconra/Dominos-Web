@@ -1,4 +1,4 @@
-var polloModal = document.getElementById('postreModal')
+var postreModal = document.getElementById('postreModal')
 var originalPrice = 0;
 var newPrice = 0;
 
@@ -15,10 +15,10 @@ postreModal.addEventListener('show.bs.modal', function (event) {
     var modalCantidad = postreModal.querySelector('#cantidadPostre')
 
     var nameMap = {
-        "brownie": "brownie",
-        "cajeta-baitz": "cajeta-baitz",
-        "canela-baitz": "canela-baitz",
-        "volcan": "volcan"
+        "brownie": "Brownie",
+        "cajeta-baitz": "Cajeta-baitz",
+        "canela-baitz": "Canela-baitz",
+        "volcan": "Volcan"
     }
 
     var descMap = {
