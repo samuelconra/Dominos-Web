@@ -17,9 +17,10 @@ const app = initializeApp(firebaseConfig);
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(app);
 
-// Actualiza cantidad de productos
-const querySnapshotCarrito = await getDocs(collection(db, "Carrito"));
-$('#cantidad-carrito').html(querySnapshotCarrito.size)
+const q = query(collection(db, "Carrito"));
+const unsubscribe = onSnapshot(q, (querySnapshot) => {
+    $('#cantidad-carrito').html(querySnapshot.size - 1)
+});
 
 // get pizzas
 const querySnapshotPizzas = await getDocs(collection(db, "Pizzas"));
@@ -133,20 +134,3 @@ $("#btnAgregarPostre").click(function () {
      Precio: price,
     });
 });
-
-$("#btnCerrarCompra").click(function () {
-    $('#cantidad-carrito').html(querySnapshotCarrito.size)
-})
-
-
-// const querySnapshot1 = await getDocs(collection(db, "Carrito"));
-// const querySnapshotCarrito = query(collection(db, "Carrito"));
-// const cantidadCarrito = onSnapshot(querySnapshotCarrito, (querySnapshot1) => {
-//     $('#cantidad-carrito').html(querySnapshotCarrito.size)
-// });
-
-
-// const querySnapshotCarrito = await getDocs(collection(db, "Carrito"));
-// $(document).ready(function () {
-//     $('#cantidad-carrito').html(querySnapshotCarrito.size)
-// });

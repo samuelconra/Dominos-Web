@@ -239,19 +239,21 @@ a.link-navtop:active, a.link-navtop.active{
 }
 .cantidadProducto{
     width: 45px;
-    color: #006491;
+    color: #002c45;
+    text-align: center;
     background-color: rgb(0, 100, 145, 0.2);
     border-radius: 10px;
     padding: 7px;
     margin-bottom: 5px;
 }
 .tamProducto{
-    color: #006491;
+    color: #002c45;
     background-color: rgb(0, 100, 145, 0.2);
     border-radius: 10px;
     padding: 7px;
 }
 .productoPrecio{
+    color: #002c45;
     font-size: 1.5rem;
     font-weight: 500;
 }

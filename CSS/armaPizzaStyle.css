@@ -2,8 +2,93 @@
     color: #002c45 !important;
     margin: 0 25px;
 }
+.nav-pills .nav-link.active{
+    background-color: #002c45;
+    color: white !important;
+}
 @media (max-width: 768px) {
     .link-menu{
         margin: 0 2px;
     }
 }
+
+.label-opcion{
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #002c45;
+    display: block;
+}
+.select-opcion{
+    padding: 0.5rem;
+    border-radius: 0.8rem;
+    background-color: rgb(0, 44, 69, 0.15);
+    width: 60%;
+}
+.pedido-actual{
+    font-weight: 300;
+    padding: 10px;
+    border-radius: 0.7rem;
+    color: #002c45;
+    background-color: rgb(0, 44, 69, 0.15);
+}
+.lado-pizza{
+    font-weight: 500;
+    margin-bottom: 0;
+
+}
+
+.label-checkbox{
+    font-weight: 300;
+    color: #002c45;
+}
+
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../fonts/icomoon.eot?7jqkd4');
+    src:  url('../fonts/icomoon.eot?7jqkd4#iefix') format('embedded-opentype'),
+      url('../fonts/icomoon.ttf?7jqkd4') format('truetype'),
+      url('../fonts/icomoon.woff?7jqkd4') format('woff'),
+      url('../fonts/icomoon.svg?7jqkd4#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+  
+  [class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+
+    color: #002c45;
+    font-size: 1.8rem;
+    line-height: 1;
+    transition: all ease 1s;
+    border: #002c45 solid 2px;
+    border-radius: 50%;
+    background-color: transparent;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-circulo-mitad-izquierda:before {
+    content: "\e900";
+  }
+  .icon-circulo-mitad-derecha:before {
+    content: "\e901";
+  }
+  .icon-circulo-completo:before {
+    content: "\e902";
+  }
+
+  .icono-circulo{
+    margin: 0 6px;
+  }
+  .icono-circulo:hover{
+    color: #DC2F34;
+  }
