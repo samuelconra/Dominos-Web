@@ -134,3 +134,31 @@ $("#btnAgregarPostre").click(function () {
      Precio: price,
     });
 });
+
+
+
+// SUCURSALES
+const querySnapshotSucursales = await getDocs(collection(db, "Sucursales"));
+var sucursalesHtmlCards = "";
+querySnapshotSucursales.forEach((doc) => {
+    sucursalesHtmlCards += createSucursalCard(doc.data().Nombre, doc.data().Link, doc.data().Location, doc.data().Telefono, doc.data().Value);
+});
+
+$("#sucursales-div").html(sucursalesHtmlCards);
+
+function createSucursalCard(name, link, location, phone, value) {
+    var htmlCard = `
+    <div class="col-12 col-md-6 col-lg-4 p-4">
+        <div class="tarjeta-sucursal">
+        <iframe src="${link}" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="info-sucursal text-center">
+            <h5>${name}</h5> 
+            <p class="mt-3">${location}</p>
+            <p>Teléfono: <span style="font-weight: 400;">${phone}</span></p>
+            <button class="btn-sucursal" value="${value}">Seleccionar</button>
+        </div>
+        </div>
+    </div>
+    `;
+    return htmlCard;
+}
