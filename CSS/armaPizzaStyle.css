@@ -1,51 +1,47 @@
-body{
-  transition: all ease 1s;
-}
 .link-menu{
-    color: #002c45 !important;
-    margin: 0 25px;
+  color: #002c45 !important;
+  margin: 0 25px;
 }
 .nav-pills .nav-link.active{
-    background-color: #002c45;
-    color: white !important;
+  background-color: #002c45;
+  color: white !important;
 }
 @media (max-width: 768px) {
-    .link-menu{
-        margin: 0 2px;
-    }
+  .link-menu{
+      margin: 0 2px;
+  }
 }
 input{
   accent-color: #002c45;
 }
 .label-opcion{
-    font-size: 1.3rem;
-    font-weight: 500;
-    color: #002c45;
-    display: block;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #002c45;
+  display: block;
 }
 .select-opcion{
-    padding: 0.5rem;
-    border-radius: 0.8rem;
-    background-color: rgb(0, 44, 69, 0.15);
-    width: 60%;
+  padding: 0.5rem;
+  border-radius: 0.8rem;
+  background-color: rgb(0, 44, 69, 0.15);
+  width: 60%;
 }
 #quesoDiv .select-opcion{
-  width: 40%;
+  width: 60%;
   margin-top: 0.2rem;
   margin-bottom: 0.3em;
 }
 .pedido-actual{
-    font-weight: 300;
-    padding: 10px;
-    padding-top: 30px;
-    border-radius: 0.7rem;
-    color: #002c45;
-    background-color: rgb(0, 44, 69, 0.15);
+  font-weight: 300;
+  padding: 10px;
+  padding-top: 30px;
+  border-radius: 0.7rem;
+  color: #002c45;
+  background-color: rgb(0, 44, 69, 0.15);
 }
 .lado-pizza{
-    font-weight: 500;
-    margin-bottom: 0;
-
+  font-weight: 500;
+  margin-bottom: 0;
 }
 
 .label-checkbox{
@@ -89,23 +85,54 @@ input{
     -moz-osx-font-smoothing: grayscale;
   }
   
-  .icon-circulo-mitad-izquierda:before {
-    content: "\e900";
-  }
-  .icon-circulo-mitad-derecha:before {
-    content: "\e901";
-  }
-  .icon-circulo-completo:before {
-    content: "\e902";
-  }
+.icon-circulo-mitad-izquierda:before {
+  content: "\e900";
+}
+.icon-circulo-mitad-derecha:before {
+  content: "\e901";
+}
+.icon-circulo-completo:before {
+  content: "\e902";
+}
+.icono-circulo{
+  margin: 0 6px;
+}
+#ingredientesDiv .icono-circulo{
+  font-size: 1.4rem;
+  margin-left: 0;
+}
 
-  .icono-circulo{
-    margin: 0 6px;
-  }
-  #ingredientesDiv .icono-circulo{
-    font-size: 1.4rem;
-    margin-left: 0;
-  }
-  .active-btn-1, .active-btn-2, .icono-circulo:hover{
-    color: #DC2F34;
-  }
+
+.contenedor-mitades{
+  display: none;
+}
+button.active-mitad, .icono-circulo:hover{
+  color: #DC2F34;
+}
+
+
+
+
+.contenedor-imagen-pizza{
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  overflow: hidden;
+}
+
+.contenedor-imagen-pizza .imagen-pizza-base{
+  background-size: cover;
+}
+
+.ingrediente-izquierdo{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.ingrediente-derecho{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scaleX(-1) scaleY(-1);
+}

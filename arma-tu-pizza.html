@@ -17,6 +17,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="module" src="JS\menuFirestore.js"></script>
+    <script defer src="JS/pizzaPersonalizacion.js"></script>
     
 
     <!-- SCRIPTS -->
@@ -78,12 +79,12 @@
         <!-- masa -->
         <div class="tab-pane fade show active" id="v-pills-masa" role="tabpanel" aria-labelledby="v-pills-masa-tab" tabindex="0">
           <div class="row align-items-center justify-content-between" id="masaDiv">
-            <div class="col-12 col-md-5 col-lg-5 order-1 order-md-0 order-lg-0">
-              <img src="/Images/pizza-test.png" alt="">
+            <div class="col-12 col-md-5 col-lg-5 order-1 order-md-0 order-lg-0 contenedor-imagen-pizza">
+              <img src="/Images/Pizza-Base.png" alt="pizza-base" class="imagen-pizza-base">
             </div>
             <div class="col-12 col-md-7 col-lg-7 order-0 order-md-1 order-lg-1">
               <div class="row align-items-center justify-content-between px-lg-4">
-                <div class="col-6 col-md-6 col-lg-7 text-start">
+                <div class="col-6 col-md-6 col-lg-6 text-start">
                   <div>
                     <label for="pizza-tam" class="label-opcion">ELIGE TU TAMAÑO:</label>
                     <select id="pizza-tam" name="pizza-tam" class="select-opcion">
@@ -101,7 +102,7 @@
                     </select>
                   </div>
                 </div>
-                <div class="col-6 col-md-6 col-lg-5 text-center p-3">
+                <div class="col-6 col-md-6 col-lg-6 text-center p-3">
                   <div class="pedido-actual">
                     <h3>MI PIZZA</h3>
                     <p>Pizza <span class="txt-tam">Grande</span> <span class="txt-masa">Original</span></p>
@@ -122,7 +123,7 @@
 
                     <input type="number" name="cantidadDePizza" id="cantidadDePizza" class="cantidadProducto" value="1" min="1" max="5">
                     <div class="text-center mt-2">
-                      <button id="btnAgregarPizza" class="btnAgregarProducto" data-bs-target="#agregadoExitosoModal" data-bs-toggle="modal">AGREGAR AL CARRITO</button>
+                      <button class="btnAgregarProducto" data-bs-target="#agregadoExitosoModal" data-bs-toggle="modal">AGREGAR AL CARRITO</button>
                     </div>
                   </div>
                 </div>
@@ -134,12 +135,12 @@
         <!-- queso -->
         <div class="tab-pane fade" id="v-pills-queso" role="tabpanel" aria-labelledby="v-pills-queso-tab" tabindex="0">
           <div class="row align-items-center justify-content-between" id="quesoDiv">
-            <div class="col-12 col-md-5 col-lg-5 order-1 order-md-0 order-lg-0">
-              <img src="/Images/pizza-test.png" alt="">
+            <div class="col-12 col-md-5 col-lg-5 order-1 order-md-0 order-lg-0 contenedor-imagen-pizza">
+              <img src="/Images/Pizza-Base.png" alt="pizza-base" class="imagen-pizza-base">
             </div>
             <div class="col-12 col-md-7 col-lg-7 order-0 order-md-1 order-lg-1">
               <div class="row align-items-center justify-content-between px-lg-4">
-                <div class="col-6 col-md-6 col-lg-7 text-start">
+                <div class="col-6 col-md-6 col-lg-6 text-start">
                   <div>
                     <label class="label-opcion">ELIGE EL QUESO:</label>
                     <input type="checkbox" id="quesoMozzarela" name="quesoMozzarela" value="Queso Mozzarela" checked/>
@@ -150,9 +151,9 @@
                       <option value="Extra">Extra</option>
                     </select>
                     <br>
-                    <div class="mt-2" id="div-mitades-1">
+                    <div class="mt-2" id="div-mitades-queso">
                       <button class="icon-circulo-mitad-izquierda icono-circulo" value="izquierda"></button>
-                      <button class="icon-circulo-completo icono-circulo active-btn-1" value="completa"></button>
+                      <button class="icon-circulo-completo icono-circulo active-mitad" value="completa"></button>
                       <button class="icon-circulo-mitad-derecha icono-circulo" value="derecha"></button>
                     </div>
                   </div>
@@ -165,13 +166,13 @@
                     <option value="Extra">Extra</option>
                   </select>
                   <br>
-                  <div class="mt-2" id="div-mitades-2">
+                  <div class="mt-2" id="div-mitades-salsa">
                     <button class="icon-circulo-mitad-izquierda icono-circulo" value="izquierda"></button>
-                    <button class="icon-circulo-completo icono-circulo active-btn-2" value="completa"></button>
+                    <button class="icon-circulo-completo icono-circulo active-mitad" value="completa"></button>
                     <button class="icon-circulo-mitad-derecha icono-circulo" value="derecha"></button>
                   </div>
                 </div>
-                <div class="col-6 col-md-6 col-lg-5 text-center p-3">
+                <div class="col-6 col-md-6 col-lg-6 text-center p-3">
                   <div class="pedido-actual">
                     <h3>MI PIZZA</h3>
                     <p>Pizza <span class="txt-tam">Grande</span> <span class="txt-masa">Original</span></p>
@@ -192,7 +193,7 @@
 
                     <input type="number" name="cantidadDePizza" id="cantidadDePizza" class="cantidadProducto" value="1" min="1" max="5">
                     <div class="text-center mt-2">
-                      <button id="btnAgregarPizza" class="btnAgregarProducto" data-bs-target="#agregadoExitosoModal" data-bs-toggle="modal">AGREGAR AL CARRITO</button>
+                      <button class="btnAgregarProducto" data-bs-target="#agregadoExitosoModal" data-bs-toggle="modal">AGREGAR AL CARRITO</button>
                     </div>
                   </div>
                 </div>
@@ -204,65 +205,149 @@
         <!-- ingredientes -->
         <div class="tab-pane fade" id="v-pills-ingredientes" role="tabpanel" aria-labelledby="v-pills-ingredientes-tab" tabindex="0">
           <div class="row align-items-center justify-content-between" id="ingredientesDiv">
-            <div class="col-12 col-md-5 col-lg-5 order-1 order-md-0 order-lg-0">
-              <img src="/Images/pizza-test.png" alt="">
+            <div class="col-12 col-md-5 col-lg-5 order-1 order-md-0 order-lg-0 contenedor-imagen-pizza">
+              <img src="/Images/Pizza-Base.png" alt="pizza-base" class="imagen-pizza-base">
             </div>
             <div class="col-12 col-md-7 col-lg-6 order-0 order-md-1 order-lg-1">
               <div class="row justify-content-between px-lg-4">
                 <div class="col-6 col-md-6 col-lg-6 text-start mt-3 mt-md-0 mt-lg-0 order-1 order-md-0 order-lg-0">
                   <label class="label-opcion">ELIGE TUS CARNES:</label>
                   <div>
-                    <input type="checkbox" id="pepperoni-checkbox" name="pepperoni-checkbox"/>
+                    <input type="checkbox" id="pepperoni-checkbox" name="pepperoni-checkbox" class="ingrediente-checkbox" value="pepperoni"/>
                     <label for="pepperoni-checkbox" class="label-checkbox">Pepperoni</label>
-                    <div class="mt-1" id="div-pepperoni"></div>
+                    <div class="mt-1 contenedor-mitades" id="div-pepperoni" data-ingrediente="pepperoni">
+                      <button class="icon-circulo-mitad-izquierda icono-circulo" value="izquierda"></button>
+                      <button class="icon-circulo-completo icono-circulo active-mitad" value="completa"></button>
+                      <button class="icon-circulo-mitad-derecha icono-circulo" value="derecha"></button>
+                    </div>
                   </div>
                   <div>
-                    <input type="checkbox" id="jamon-checkbox" name="jamon-checkbox"/>
+                    <input type="checkbox" id="jamon-checkbox" name="jamon-checkbox" class="ingrediente-checkbox" value="jamon"/>
                     <label for="jamon-checkbox" class="label-checkbox">Jamón</label>
+                    <div class="mt-1 contenedor-mitades" id="div-jamon" data-ingrediente="jamon">
+                      <button class="icon-circulo-mitad-izquierda icono-circulo" value="izquierda"></button>
+                      <button class="icon-circulo-completo icono-circulo active-mitad" value="completa"></button>
+                      <button class="icon-circulo-mitad-derecha icono-circulo" value="derecha"></button>
+                    </div>                    
                   </div>
                   <div>
-                    <input type="checkbox" id="carne-checkbox" name="carne-checkbox"/>
+                    <input type="checkbox" id="carne-checkbox" name="carne-checkbox" class="ingrediente-checkbox" value="carne"/>
                     <label for="carne-checkbox" class="label-checkbox">Carne Molida</label>
+                    <div class="mt-1 contenedor-mitades" id="div-carne" data-ingrediente="carne">
+                      <button class="icon-circulo-mitad-izquierda icono-circulo" value="izquierda"></button>
+                      <button class="icon-circulo-completo icono-circulo active-mitad" value="completa"></button>
+                      <button class="icon-circulo-mitad-derecha icono-circulo" value="derecha"></button>
+                    </div>  
                   </div>
                   <div>
-                    <input type="checkbox" id="tocino-checkbox" name="tocino-checkbox"/>
+                    <input type="checkbox" id="tocino-checkbox" name="tocino-checkbox" class="ingrediente-checkbox" value="tocino"/>
                     <label for="tocino-checkbox" class="label-checkbox">Tocino</label>
+                    <div class="mt-1 contenedor-mitades" id="div-tocino" data-ingrediente="tocino">
+                      <button class="icon-circulo-mitad-izquierda icono-circulo" value="izquierda"></button>
+                      <button class="icon-circulo-completo icono-circulo active-mitad" value="completa"></button>
+                      <button class="icon-circulo-mitad-derecha icono-circulo" value="derecha"></button>
+                    </div>  
                   </div>
                   <div>
-                    <input type="checkbox" id="chorizo-checkbox" name="chorizo-checkbox"/>
+                    <input type="checkbox" id="chorizo-checkbox" name="chorizo-checkbox" class="ingrediente-checkbox" value="chorizo"/>
                     <label for="chorizo-checkbox" class="label-checkbox">Chorizo</label>
+                    <div class="mt-1 contenedor-mitades" id="div-chorizo" data-ingrediente="chorizo">
+                      <button class="icon-circulo-mitad-izquierda icono-circulo" value="izquierda"></button>
+                      <button class="icon-circulo-completo icono-circulo active-mitad" value="completa"></button>
+                      <button class="icon-circulo-mitad-derecha icono-circulo" value="derecha"></button>
+                    </div>  
                   </div>
                   <div>
-                    <input type="checkbox" id="pollo-checkbox" name="pollo-checkbox"/>
+                    <input type="checkbox" id="pollo-checkbox" name="pollo-checkbox" class="ingrediente-checkbox" value="pollo"/>
                     <label for="pollo-checkbox" class="label-checkbox">Pollo</label>
+                    <div class="mt-1 contenedor-mitades" id="div-pollo" data-ingrediente="pollo">
+                      <button class="icon-circulo-mitad-izquierda icono-circulo" value="izquierda"></button>
+                      <button class="icon-circulo-completo icono-circulo active-mitad" value="completa"></button>
+                      <button class="icon-circulo-mitad-derecha icono-circulo" value="derecha"></button>
+                    </div>  
                   </div>
                   <div>
-                    <input type="checkbox" id="salami-checkbox" name="salami-checkbox"/>
+                    <input type="checkbox" id="salami-checkbox" name="salami-checkbox" class="ingrediente-checkbox" value="salami"/>
                     <label for="salami-checkbox" class="label-checkbox">Salami</label>
+                    <div class="mt-1 contenedor-mitades" id="div-salami" data-ingrediente="salami">
+                      <button class="icon-circulo-mitad-izquierda icono-circulo" value="izquierda"></button>
+                      <button class="icon-circulo-completo icono-circulo active-mitad" value="completa"></button>
+                      <button class="icon-circulo-mitad-derecha icono-circulo" value="derecha"></button>
+                    </div>  
                   </div>
                 </div>
                 <div class="col-6 col-md-6 col-lg-6 text-start mt-3 mt-md-0 mt-lg-0 order-2 order-md-1 order-lg-1">
                     <label class="label-opcion">ELIGE OTROS:</label>
-                    <input type="checkbox" id="salsaMango-checkbox" name="salsaMango-checkbox"/>
-                    <label for="salsaMango-checkbox" class="label-checkbox">Salsa Mango Habanero</label>
-                    <br>
-                    <input type="checkbox" id="champ-checkbox" name="champ-checkbox"/>
-                    <label for="champ-checkbox" class="label-checkbox">Champiñones Frescos</label>
-                    <br>
-                    <input type="checkbox" id="piña-checkbox" name="piña-checkbox"/>
-                    <label for="piña-checkbox" class="label-checkbox">Piña</label>
-                    <br>
-                    <input type="checkbox" id="jalapeño-checkbox" name="jalapeño-checkbox"/>
-                    <label for="jalapeño-checkbox" class="label-checkbox">Jalapeños</label>
-                    <br>
-                    <input type="checkbox" id="pimiento-checkbox" name="pimiento-checkbox"/>
-                    <label for="pimiento-checkbox" class="label-checkbox">Pimientos</label>
-                    <br>
-                    <input type="checkbox" id="cebolla-checkbox" name="cebolla-checkbox"/>
-                    <label for="cebolla-checkbox" class="label-checkbox">Cebolla</label>
-                    <br>
-                    <input type="checkbox" id="aceituna-checkbox" name="aceituna-checkbox"/>
-                    <label for="aceituna-checkbox" class="label-checkbox">Aceituna</label>
+
+                    <div>
+                      <input type="checkbox" id="salsaMango-checkbox" name="salsaMango-checkbox" class="ingrediente-checkbox" value="salsaMango"/>
+                      <label for="salsaMango-checkbox" class="label-checkbox">Salsa Mango Habanero</label>
+                      <div class="mt-1 contenedor-mitades" id="div-salsaMango" data-ingrediente="salsaMango">
+                        <button class="icon-circulo-mitad-izquierda icono-circulo" value="izquierda"></button>
+                        <button class="icon-circulo-completo icono-circulo active-mitad" value="completa"></button>
+                        <button class="icon-circulo-mitad-derecha icono-circulo" value="derecha"></button>
+                      </div> 
+                    </div>
+
+                    <div>
+                      <input type="checkbox" id="champ-checkbox" name="champ-checkbox" class="ingrediente-checkbox" value="champ"/>
+                      <label for="champ-checkbox" class="label-checkbox">Champiñones Frescos</label>
+                      <div class="mt-1 contenedor-mitades" id="div-champ" data-ingrediente="champ">
+                        <button class="icon-circulo-mitad-izquierda icono-circulo" value="izquierda"></button>
+                        <button class="icon-circulo-completo icono-circulo active-mitad" value="completa"></button>
+                        <button class="icon-circulo-mitad-derecha icono-circulo" value="derecha"></button>
+                      </div> 
+                    </div>
+
+                    <div>
+                      <input type="checkbox" id="pina-checkbox" name="pina-checkbox" class="ingrediente-checkbox" value="pina"/>
+                      <label for="pina-checkbox" class="label-checkbox">Piña</label>
+                      <div class="mt-1 contenedor-mitades" id="div-pina" data-ingrediente="pina">
+                        <button class="icon-circulo-mitad-izquierda icono-circulo" value="izquierda"></button>
+                        <button class="icon-circulo-completo icono-circulo active-mitad" value="completa"></button>
+                        <button class="icon-circulo-mitad-derecha icono-circulo" value="derecha"></button>
+                      </div> 
+                    </div>
+
+                    <div>
+                      <input type="checkbox" id="jalap-checkbox" name="jalap-checkbox" class="ingrediente-checkbox" value="jalap"/>
+                      <label for="jalap-checkbox" class="label-checkbox">Jalapeños</label>
+                      <div class="mt-1 contenedor-mitades" id="div-jalap" data-ingrediente="jalap">
+                        <button class="icon-circulo-mitad-izquierda icono-circulo" value="izquierda"></button>
+                        <button class="icon-circulo-completo icono-circulo active-mitad" value="completa"></button>
+                        <button class="icon-circulo-mitad-derecha icono-circulo" value="derecha"></button>
+                      </div> 
+                    </div>
+
+                    <div>
+                      <input type="checkbox" id="pimiento-checkbox" name="pimiento-checkbox" class="ingrediente-checkbox" value="pimiento"/>
+                      <label for="pimiento-checkbox" class="label-checkbox">Pimientos</label>
+                      <div class="mt-1 contenedor-mitades" id="div-pimiento" data-ingrediente="pimiento">
+                        <button class="icon-circulo-mitad-izquierda icono-circulo" value="izquierda"></button>
+                        <button class="icon-circulo-completo icono-circulo active-mitad" value="completa"></button>
+                        <button class="icon-circulo-mitad-derecha icono-circulo" value="derecha"></button>
+                      </div> 
+                    </div>
+
+                    <div>
+                      <input type="checkbox" id="cebolla-checkbox" name="cebolla-checkbox" class="ingrediente-checkbox" value="cebolla"/>
+                      <label for="cebolla-checkbox" class="label-checkbox">Cebolla</label>
+                      <div class="mt-1 contenedor-mitades" id="div-cebolla" data-ingrediente="cebolla">
+                        <button class="icon-circulo-mitad-izquierda icono-circulo" value="izquierda"></button>
+                        <button class="icon-circulo-completo icono-circulo active-mitad" value="completa"></button>
+                        <button class="icon-circulo-mitad-derecha icono-circulo" value="derecha"></button>
+                      </div> 
+                    </div>
+
+                    <div>
+                      <input type="checkbox" id="aceituna-checkbox" name="aceituna-checkbox" class="ingrediente-checkbox" value="aceituna"/>
+                      <label for="aceituna-checkbox" class="label-checkbox">Aceituna</label>
+                      <div class="mt-1 contenedor-mitades" id="div-aceituna" data-ingrediente="aceituna">
+                        <button class="icon-circulo-mitad-izquierda icono-circulo" value="izquierda"></button>
+                        <button class="icon-circulo-completo icono-circulo active-mitad" value="completa"></button>
+                        <button class="icon-circulo-mitad-derecha icono-circulo" value="derecha"></button>
+                      </div> 
+                    </div>
                 </div>
                 <div class="col-12 col-md-12 col-lg-9 text-center mt-3 order-0 order-md-2 order-lg-2">
                   <div class="pedido-actual">
@@ -285,7 +370,7 @@
 
                     <input type="number" name="cantidadDePizza" id="cantidadDePizza" class="cantidadProducto" value="1" min="1" max="5">
                     <div class="text-center mt-2">
-                      <button id="btnAgregarPizza" class="btnAgregarProducto" data-bs-target="#agregadoExitosoModal" data-bs-toggle="modal">AGREGAR AL CARRITO</button>
+                      <button class="btnAgregarProducto" data-bs-target="#agregadoExitosoModal" data-bs-toggle="modal">AGREGAR AL CARRITO</button>
                     </div>
                   </div>
                 </div>

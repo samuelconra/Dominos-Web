@@ -185,7 +185,8 @@ a.link-navtop:active, a.link-navtop.active{
     transition: all ease 1s;
 }
 .hr-custom{
-    border-top: 2.5px solid #006491;
+    /* border-top: 2.5px solid #006491; */
+    border: none;
     opacity: 1;
     width: 60%;
 }

@@ -155,7 +155,7 @@ function createSucursalCard(name, link, location, phone, value) {
             <h5>${name}</h5> 
             <p class="mt-3">${location}</p>
             <p>Teléfono: <span style="font-weight: 400;">${phone}</span></p>
-            <button class="btn-sucursal" value="${value}">Seleccionar</button>
+            <button class="btn-sucursal" value="${value}" data-bs-target="#sucursalAgregada" data-bs-toggle="modal">Seleccionar</button>
         </div>
         </div>
     </div>
