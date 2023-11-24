@@ -125,12 +125,14 @@ button.active-mitad, .icono-circulo:hover{
 }
 
 .ingrediente-izquierdo{
+  width: 93%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 .ingrediente-derecho{
+  width: 93%;
   position: absolute;
   top: 50%;
   left: 50%;

@@ -9,6 +9,7 @@ $(document).ready(function () {
         }
         else if (masaSelected == 'Orilla de Queso')
         {
+            $(".imagen-pizza-base").attr("src", "/Images/Pizza-Base-Queso.png")
         }
         else
         {
