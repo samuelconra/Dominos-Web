@@ -22,6 +22,8 @@ const unsubscribe = onSnapshot(q, (querySnapshot) => {
     $('#cantidad-carrito').html(querySnapshot.size - 1)
 });
 
+
+
 // get pizzas
 const querySnapshotPizzas = await getDocs(collection(db, "Pizzas"));
 var pizzasHtmlCards = "";
@@ -135,8 +137,6 @@ $("#btnAgregarPostre").click(function () {
     });
 });
 
-
-
 // SUCURSALES
 const querySnapshotSucursales = await getDocs(collection(db, "Sucursales"));
 var sucursalesHtmlCards = "";
@@ -162,3 +162,24 @@ function createSucursalCard(name, link, location, phone, value) {
     `;
     return htmlCard;
 }
+
+// HACER QUE EL CARRITO APAREZCA EN HOVER
+$(document).ready(function() {
+    $(".contenedor-carrito").hover(
+        function() {
+            $("#carritoCollapse").addClass("show");
+        },
+        function() {
+            $("#carritoCollapse").removeClass("show");
+        }
+    );
+
+    $("#carritoCollapse").hover(
+        function() {
+            $(this).addClass("show");
+        },
+        function() {
+            $(this).removeClass("show");
+        }
+    );
+  });
