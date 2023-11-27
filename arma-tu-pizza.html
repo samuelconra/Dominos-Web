@@ -35,8 +35,48 @@
           </a>
 
           <div class="contenedor-carrito my-auto order-2 order-md-2 order-lg-2">
-            <a href="" class="icono-navtop"><i class="fa-solid fa-cart-shopping mx-2"></i></a>
+            <a href="" class="icono-navtop" data-bs-toggle="collapse" data-bs-target="#carritoCollapse" aria-expanded="false" aria-controls="carritoCollapse"><i class="fa-solid fa-cart-shopping mx-2"></i></a>
             <p id="cantidad-carrito"></p>
+          </div>
+
+          <div class="carrito">
+            <div class="collapse" id="carritoCollapse">
+              <div class="card card-body" id="seccion-carrito">
+                <div id="productos">
+                </div>
+
+                <hr style="margin: 0; margin-bottom: 16px; margin-top: 6px;">
+
+                <div class="div-subtotal d-flex">
+                  <p id="subtotal-txt" >SUBTOTAL</p>
+                  <p id="subtotal-carrito" class="ms-auto">$190.00</p>
+                </div>
+
+                <div id="contenedor-entrega">
+                  <div id="linea-separacion"></div>
+                  <h4>TU ENTREGA</h4>
+                </div>
+
+                <div id="entrega-carrito">
+                  <label for="sucursales">SUCURSAL:</label>
+                  <select name="sucursales" id="sucursales-select">
+                    <option value="LA MARINA">LA MARINA</option>
+                    <option value="GALERÍAS">GALERÍAS</option>
+                    <option value="PLAZA MAYOR">PLAZA MAYOR</option>
+                    <option value="MALECÓN">MALECÓN</option>
+                    <option value="ARBIDE">ARBIDE</option>
+                  </select>
+                  <br>
+                  <p id="sucursal-entrega">Blvd. Antonio Madrazo Esq. Blvd. Guanajuato S/N, Las Trojes, 37227 León de los Aldama, Gto.</p>
+                </div>
+
+                <div>
+                  <label for="emailCarrito">Email: </label>
+                  <input type="email" name="emailCarrito" class="emailInput" placeholder="user@email.com" required>
+                </div>
+                <button id="btn-completar" class="mt-4" data-bs-target="#compraExitosa" data-bs-toggle="modal">COMPLETAR PEDIDO</button>
+              </div>
+            </div>
           </div>
 
           <button class="navbar-toggler order-0 order-md-0 order-lg-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" data-bs-theme="dark">
@@ -108,7 +148,7 @@
                 <div class="col-6 col-md-6 col-lg-6 text-center p-3">
                   <div class="pedido-actual">
                     <h3>MI PIZZA</h3>
-                    <p id="pizza-main">Pizza <span class="txt-tam">Individual</span> <span class="txt-masa">Original</span></p>
+                    <p>Pizza <span class="txt-tam" id="txt-tam">Individual</span> <span class="txt-masa" id="txt-masa">Original</span></p>
 
                     <div class="row">
                       <div class="col-6">
@@ -426,6 +466,20 @@
           </div>
           <div class="modal-body">
             <p style="color: #002c45; font-weight:300">Su pedido ha sido agregado exitosamente, dirijase al carrito de compra para finalizar su compra</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="compraExitosa" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalToggleLabel2" style="color: #097100;">COMPRA REALIZADA CON ÉXITO!</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="btnCerrarCompra"></button>
+          </div>
+          <div class="modal-body">
+            <p style="color: #002c45; font-weight:300">Su compra ha sido realizada exitosamente.</p>
           </div>
         </div>
       </div>

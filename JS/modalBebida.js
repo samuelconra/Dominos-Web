@@ -24,11 +24,11 @@ bebidasModal.addEventListener('show.bs.modal', function (event) {
     }
 
     var descMap = {
-        "coca-cola": "DESC",
-        "pepsi": "desc",
-        "fanta": "desc",
-        "sprite": "desc",
-        "agua": "desc"
+        "coca-cola": "La icónica efervescencia y sabor a cola de Coca-Cola, refrescante y perfecta para cualquier ocasión. ¡Sumérgete en el clásico e inconfundible placer burbujeante!",
+        "pepsi": "Una explosión equilibrada de dulzura y frescura en cada sorbo. El distintivo sabor de Pepsi te invita a disfrutar de momentos refrescantes.",
+        "fanta": "deSumérgete en la vibrante explosión de sabores de Fanta. Desde naranja hasta piña, cada sorbo es una experiencia frutal y burbujeante. ¡Refresca tu día con Fanta!sc",
+        "sprite": "La chispeante esencia cítrica de Sprite, ligera y burbujeante. Perfecta para momentos de frescura y saciedad. ¡Haz que cada sorbo cuente con el sabor único de Sprite!",
+        "agua": "Pureza en cada gota, el agua esencia de la vida. Hidratación cristalina para revitalizar tu cuerpo. ¡La elección refrescante y natural para equilibrar tu día!"
     }
 
     var priceMap = {
@@ -57,7 +57,7 @@ $(document).ready(function () {
     $("#cantidadBebida").change(function () {        
         var cantidad = $("#cantidadBebida").val();
         var subtotal = cantidad * newPrice;
-        $("#bebidaPrice").html(subtotal);
+        $("#bebidaPrice").html(subtotal.toFixed(2));
     });
 
     $("#tamBebida").change(function () {
@@ -74,6 +74,6 @@ $(document).ready(function () {
         
         var cantidad = $("#cantidadBebida").val();
         var subtotal = cantidad * newPrice;
-        $("#bebidaPrice").html(subtotal);
+        $("#bebidaPrice").html(subtotal.toFixed(2));
     });
 });

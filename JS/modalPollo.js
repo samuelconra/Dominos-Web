@@ -16,16 +16,16 @@ polloModal.addEventListener('show.bs.modal', function (event) {
 
     var nameMap = {
         "alitas-bbq": "Alitas BQQ",
-        "mango-habanero": "Alitas Mango Habanero",
+        "mango-habanero": "Alitas Habanero",
         "boneless-bbq": "Boneless BBQ",
         "boneless-naturales": "Boneless Naturales"
     }
 
     var descMap = {
-        "alitas-bbq": "DESC",
-        "mango-habanero": "DESC",
-        "boneless-bbq": "DESC",
-        "boneless-naturales": "DESC"
+        "alitas-bbq": "Jugosas alitas bañadas en salsa BBQ ahumada, ofreciendo un equilibrio perfecto entre dulce y picante. ¡Una experiencia de sabor irresistible!",
+        "mango-habanero": "Aventura tropical en cada mordida, con el dulzor del mango y el toque picante del habanero. ¡Alitas que despiertan tus sentidos!",
+        "boneless-bbq": "Ternura sin hueso en cada bocado, sumergidos en la deliciosa salsa BBQ. ¡Perfecto equilibrio entre suavidad y sabor a la parrilla!",
+        "boneless-naturales": "Deliciosamente versátiles, estos boneless naturales son lienzos en blanco para tu paladar. Acompaña con tus salsas favoritas y crea tu experiencia única. ¡Sin límites de sabor!"
     }
 
     var priceMap = {
@@ -53,7 +53,7 @@ $(document).ready(function () {
     $("#cantidadPollo").change(function () {        
         var cantidad = $("#cantidadPollo").val();
         var subtotal = cantidad * newPrice;
-        $("#polloPrice").html(subtotal);
+        $("#polloPrice").html(subtotal.toFixed(2));
     });
 
     $("#tamPollo").change(function () {
@@ -70,6 +70,6 @@ $(document).ready(function () {
         
         var cantidad = $("#cantidadPollo").val();
         var subtotal = cantidad * newPrice;
-        $("#polloPrice").html(subtotal);
+        $("#polloPrice").html(subtotal.toFixed(2));
     });
 });

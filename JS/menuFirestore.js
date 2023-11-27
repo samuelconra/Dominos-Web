@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
-import { getFirestore, setDoc, doc, collection, addDoc, getDocs, onSnapshot, query } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js';
+import { getFirestore, setDoc, doc, collection, addDoc, getDocs, onSnapshot, query, deleteDoc, updateDoc } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -20,9 +20,9 @@ const db = getFirestore(app);
 
 // actualizar numero de elementos en carrito
 const q = query(collection(db, "Carrito"));
-const unsubscribe = onSnapshot(q, (querySnapshot) => {
-    $('#cantidad-carrito').html(querySnapshot.size - 1)
-});
+// const unsubscribe = onSnapshot(q, (querySnapshot) => {
+//     $('#cantidad-carrito').html(querySnapshot.size - 1)
+// });
 
 // get pizzas
 const querySnapshotPizzas = await getDocs(collection(db, "Pizzas"));
@@ -83,7 +83,9 @@ $("#btnAgregarPizza").click(function () {
     var name = $("#nombrePizza").text();
     var size = $("#tamPizza").val();
     var quantity = $("#cantidadPizza").val();
-    var price = $("#pizzaPrice").text();
+    var price =  parseFloat($("#pizzaPrice").text()).toFixed(2);
+    var image = $("#modalPizza-image").attr('src');
+    var originalPrice = price / parseFloat(quantity);
 
     //agregar datos
     const docRef = addDoc(collection(db, "Carrito"), {
@@ -91,7 +93,9 @@ $("#btnAgregarPizza").click(function () {
      Cantidad: quantity,
      Tamaño: size,
      Precio: price,
-     Tipo: 1
+     Imagen: image,
+     Tipo: 1,
+     PrecioOriginal: originalPrice
     });
 });
 
@@ -99,7 +103,9 @@ $("#btnAgregarPollo").click(function () {
     var name = $("#nombrePollo").text();
     var size = $("#tamPollo").val();
     var quantity = $("#cantidadPollo").val();
-    var price = $("#polloPrice").text();
+    var price = parseFloat($("#polloPrice").text()).toFixed(2);
+    var image = $("#modalPollo-image").attr('src');
+    var originalPrice = price / parseFloat(quantity);
 
     //agregar datos
     const docRef = addDoc(collection(db, "Carrito"), {
@@ -107,7 +113,9 @@ $("#btnAgregarPollo").click(function () {
      Cantidad: quantity,
      Tamaño: size,
      Precio: price,
-     Tipo: 2
+     Imagen: image,
+     Tipo: 2,
+     PrecioOriginal: originalPrice
     });
 });
 
@@ -115,7 +123,9 @@ $("#btnAgregarBebida").click(function () {
     var name = $("#nombreBebida").text();
     var size = $("#tamBebida").val();
     var quantity = $("#cantidadBebida").val();
-    var price = $("#bebidaPrice").text();
+    var price = parseFloat($("#bebidaPrice").text()).toFixed(2);
+    var image = $("#modalBebida-image").attr('src');
+    var originalPrice = price / parseFloat(quantity);
 
     //agregar datos
     const docRef = addDoc(collection(db, "Carrito"), {
@@ -123,21 +133,27 @@ $("#btnAgregarBebida").click(function () {
      Cantidad: quantity,
      Tamaño: size,
      Precio: price,
-     Tipo: 3
+     Imagen: image,
+     Tipo: 3,
+     PrecioOriginal: originalPrice
     });
 });
 
 $("#btnAgregarPostre").click(function () {
     var name = $("#nombrePostre").text();
     var quantity = $("#cantidadPostre").val();
-    var price = $("#postrePrice").text();
+    var price = parseFloat($("#postrePrice").text()).toFixed(2);
+    var image = $("#modalPostre-image").attr('src');
+    var originalPrice = price / parseFloat(quantity);
 
     //agregar datos
     const docRef = addDoc(collection(db, "Carrito"), {
      Producto: name,
      Cantidad: quantity,
      Precio: price,
-     Tipo: 4
+     Imagen: image,
+     Tipo: 4,
+     PrecioOriginal: originalPrice
     });
 });
 
@@ -159,13 +175,14 @@ function createSucursalCard(name, link, location, phone, value) {
                 <h5>${name}</h5> 
                 <p class="mt-3">${location}</p>
                 <p>Teléfono: <span style="font-weight: 400;">${phone}</span></p>
-                <button class="btn-sucursal" value="${value}" data-bs-target="#sucursalAgregada" data-bs-toggle="modal">Seleccionar</button>
             </div>
         </div>
     </div>
     `;
     return htmlCard;
 }
+
+{/* <button class="btn-sucursal" value="${value}" data-bs-target="#sucursalAgregada" data-bs-toggle="modal">Seleccionar</button> */}
 
 
 $(document).ready(function() {
@@ -226,7 +243,7 @@ $('.btnAgregarProducto').click(function () {
     }
     
     if ($('#salsaTomate').prop('checked')) {
-        if (queso == 'Extra'){
+        if (salsa == 'Extra'){
             precio += 10;
         }
     } else {
@@ -234,71 +251,207 @@ $('.btnAgregarProducto').click(function () {
     }
     
     precio += ($('.ingrediente-checkbox:checked').length * 8);
+    var originalPrice = precio;
     precio *= cantidad;
 
     const docRef = addDoc(collection(db, "Carrito"), {
         Producto: pizza,
+        Tamaño: tam,
+        Masa: masa,
         Izquierda: izquierda,
         Derecha: derecha,
         Completa: completa,
         Cantidad: cantidad,
         Precio: precio.toFixed(2),
-        Tipo: 5
+        Tipo: 5,
+        PrecioOriginal: originalPrice
     });
 });
 
 // agregar productos al carrito
+const product = await getDocs(collection(db, "Carrito"));
+var arrayID = []
+const consultProducts = onSnapshot(q, (querySnapshot) => {
+    var cantidadProductos = (querySnapshot.size - 1)
+    $('#cantidad-carrito').html(cantidadProductos)
+    $("#productos").empty();
+
+    var carritoProductos = "";
+    var carritoPostres = "";
+    var carritoPersonalizadas = "";
+    var subtotal = 0
+    arrayID = []
+
+    if (cantidadProductos == 0){
+        $("#productos").append(noProductsText());
+    }
+
+    querySnapshot.forEach((doc) => {
+        if (doc.data().Tipo == 1 || doc.data().Tipo == 2 || doc.data().Tipo == 3){
+            carritoProductos += createProductsCard(doc.id, doc.data().Producto, doc.data().Tamaño, doc.data().Cantidad, doc.data().Precio, doc.data().Imagen, doc.data().PrecioOriginal);
+            subtotal += parseFloat(doc.data().Precio);
+            arrayID.push(doc.id)
+        }
+        else if (doc.data().Tipo == 4){
+            carritoPostres += createPostreCard(doc.id, doc.data().Producto, doc.data().Cantidad, doc.data().Precio, doc.data().Imagen, doc.data().PrecioOriginal);
+            subtotal += parseFloat(doc.data().Precio);
+            arrayID.push(doc.id)
+        }
+        else if (doc.data().Tipo == 5){
+            carritoPersonalizadas += createPersonalizadaCard(doc.id, doc.data().Tamaño, doc.data().Masa, doc.data().Completa, doc.data().Izquierda, doc.data().Derecha, doc.data().Cantidad, doc.data().Precio, doc.data().PrecioOriginal);
+            subtotal += parseFloat(doc.data().Precio);
+            arrayID.push(doc.id)
+        }
+    });
+
+    $("#productos").append(carritoProductos);
+    $("#productos").append(carritoPostres);
+    $("#productos").append(carritoPersonalizadas);
+
+    $("#subtotal-carrito").text('$' + parseFloat(subtotal).toFixed(2));
+
+});
 
 
+function noProductsText() {
+    var htmlCard = `
+    <p class="carrito-vacio">TU CARRITO ESTÁ VACIO</p>
+    `;
+    return htmlCard;
+}
 
-// const products = query(collection(db, "Carrito"));
-// var carritoPizzas = "";
-// const consultProducts = onSnapshot(products, (querySnapshot) => {
-//     carritoPizzas += createPizzaCard(doc.data().Producto, doc.data().Tamaño, doc.data().Cantidad, doc.data().Precio);
-// });
+function createProductsCard(id, producto, tam, cantidad, precio, imagen, precioOriginal) {
+    var htmlCard = `
+    <div class="producto-carrito mb-4">
+        <button class="eliminar-producto" id="${id}"><i class="fa-solid fa-square-minus"></i></button>
+        <div class="row">
+        <div class="col-5">
+            <img src="${imagen}" alt="pepperoni" width="100%" class="imagen-producto">
+        </div>
+        <div class="col-7" style="height: 100%;">
+            <div>
+            <p class="nombreProducto-carrito">${producto}</p>
+            </div>
+            <div>
+            <p class="tamaño-carrito"><span class="espec-nom">Tamaño: </span>${tam}</p>
+            </div>
+            <div class="producto-caracteristicas align-content-end align-self-end">
+            <div class="div-cantidad">
+                <input type="number" name="cantidadProducto-carrito" class="cantidadProducto-carrito" value="${cantidad}" min="1" max="5" data-id="${id}" data-precio="${precio}" data-precioOriginal="${precioOriginal}">
+            </div>
+            <div class="div-precio">
+                <p class="precio-carrito">$${parseFloat(precio).toFixed(2)}</p>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    `;
+    return htmlCard;
+}
 
+function createPostreCard(id, producto, cantidad, precio, imagen, precioOriginal) {
+    var htmlCard = `
+    <div class="producto-carrito mb-4">
+        <button class="eliminar-producto" id="${id}"><i class="fa-solid fa-square-minus"></i></button>
+        <div class="row">
+        <div class="col-5">
+            <img src="${imagen}" alt="pepperoni" width="100%" class="imagen-producto">
+        </div>
+        <div class="col-7" style="height: 100%;">
+            <div>
+            <p class="nombreProducto-carrito">${producto}</p>
+            </div>
+            <div class="producto-caracteristicas align-content-end align-self-end mt-3">
+            <div class="div-cantidad">
+                <input type="number" name="cantidadProducto-carrito" class="cantidadProducto-carrito" value="${cantidad}" min="1" max="5" data-id="${id}" data-precio="${precio}" data-precioOriginal="${precioOriginal}">
+            </div>
+            <div class="div-precio">
+                <p class="precio-carrito">$${parseFloat(precio).toFixed(2)}</p>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    `;
+    return htmlCard;
+}
 
+function createPersonalizadaCard(id, tam, masa, completa, izquierda, derecha, cantidad, precio, precioOriginal) {
+    var htmlCard = `
+    <div class="producto-carrito mb-4">
+        <button class="eliminar-producto" id="${id}" style="top: -4%;"><i class="fa-solid fa-square-minus"></i></button>
+        <div class="row">
+            <div class="col-5">
+            <img src="Images/Pizza-Base.png" alt="pepperoni" width="100%" class="imagen-producto">
+            </div>
+            <div class="col-7" style="height: 100%;">
+            <div>
+                <p class="nombreProducto-carrito">Pizza Personalizada</p>
+            </div>
+            <div>
+                <p class="espec-carrito"><span class="espec-nom">Tamaño: </span>${tam}</p>
+                <p class="espec-carrito"><span class="espec-nom">Masa: </span>${masa}</p>
+                <p class="espec-carrito mt-2"><span class="espec-nom">Completa: </span>${completa}</p>
+                <p class="espec-carrito"><span class="espec-nom">Izquierda: </span>${izquierda}</p>
+                <p class="espec-carrito"><span class="espec-nom">Derecha: </span>${derecha}</p>
 
-// const product = await getDocs(collection(db, "Carrito"));
-// var carritoPizzas = "";
-// product.forEach((doc) => {
-//     if (doc.data().Precio == 1){
-//         carritoPizzas += createPizzaCard(doc.data().Producto, doc.data().Tamaño, doc.data().Cantidad, doc.data().Precio);
-//     }
-//     else if (doc.data().Precio == 2){
-//         carritoPollo += createPolloCard(doc.data().Producto, doc.data().Tamaño, doc.data().Cantidad, doc.data().Precio);
-//     }
-// });
+            </div>
+            <div class="producto-caracteristicas align-content-end align-self-end">
+                <div class="div-cantidad">
+                    <input type="number" name="cantidadProducto-carrito" class="cantidadProducto-carrito" value="${cantidad}" min="1" max="5" data-id="${id}" data-precio="${precio}" data-precioOriginal="${precioOriginal}">
+                </div>
+                <div class="div-precio">
+                    <p class="precio-carrito">$${parseFloat(precio).toFixed(2)}</p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    `;
+    return htmlCard;
+}
 
-// $("#productos").html(carritoPizzas);
-// $("#productos").html(carritoPollo);
+// eliminar producto
+$(document).on("click", ".eliminar-producto", function () {
+    console.log('eliminando...')
+    var idProducto = $(this).attr('id');
+    deleteDoc(doc(db, 'Carrito', idProducto));
+});
 
-// function createPizzaCard(producto, tam, cantidad, precio) {
-//     var htmlCard = `
-//     <div class="producto-carrito mt-4" id="idProducto">
-//         <a href="" class="eliminar-producto"><i class="fa-solid fa-square-minus"></i></a>
-//         <div class="row">
-//         <div class="col-5">
-//             <img src="Images/Food/pizza-pepperoni.jpeg" alt="pepperoni" width="100%" class="imagen-producto">
-//         </div>
-//         <div class="col-7" style="height: 100%;">
-//             <div>
-//             <p class="nombreProducto-carrito">${producto}</p>
-//             </div>
-//             <div>
-//             <p class="tamaño-carrito">Tamaño: ${tam}</p>
-//             </div>
-//             <div class="producto-caracteristicas align-content-end align-self-end">
-//             <div class="div-cantidad">
-//                 <input type="number" name="cantidadProducto-carrito" class="cantidadProducto-carrito" value="${cantidad}" min="1" max="5">
-//             </div>
-//             <div class="div-precio">
-//                 <p class="precio-carrito">$${parseFloat(precio).toFixed(2)}</p>
-//             </div>
-//             </div>
-//         </div>
-//         </div>
-//     </div>
-//     `;
-//     return htmlCard;
-// }
+$(document).on("click", "#btn-completar", function () {
+    arrayID.forEach(element => {
+        deleteDoc(doc(db, 'Carrito', element));
+    });
+});
+
+$(document).on("change", ".cantidadProducto-carrito", function () {
+    var nuevaCantidad = $(this).val();
+    var precioOriginal = parseFloat($(this).data("preciooriginal"));
+    console.log(precioOriginal)
+    var nuevoPrecio = parseFloat((precioOriginal) * parseFloat(nuevaCantidad)).toFixed(2);
+    var idProducto = $(this).data("id");
+
+    
+    const update = doc(db, 'Carrito', idProducto);
+    updateDoc(update, {
+        Cantidad: nuevaCantidad,
+        Precio: nuevoPrecio
+    });
+});
+
+// funcionamiento sucursal select
+$(document).on("change", "#sucursales-select", function () {
+    var sucursalNueva = $(this).val();
+
+    var sucursalMap = {
+        "CARREFOUR": "Blvd. Antonio Madrazo Esq. Blvd. Guanajuato S/N, Las Trojes, 37227 León de los Aldama, Gto.",
+        "LA MARINA": "Blvrd Jose María Morelos 702, El Palmar, San Nicolas del Palote, 37109 León de los Aldama, Gto.",
+        "GALERÍAS": "Blvd. Juan Alonso de Torres Pte. 1315, 37200 León de los Aldama, Gto.",
+        "PLAZA MAYOR": "Blvd. Las Torres 2301, Panorama, 37160 León de los Aldama, Gto.",
+        "MALECÓN": "Blvr. Mariano Escobedo Pte.  A518,  León de los Aldama, Gto.",
+        "ARBIDE": "C. Nicaragua 801, Arbide, 37360 León de los Aldama, Gto."
+    }
+
+    $("#sucursal-entrega").html(sucursalMap[sucursalNueva])
+});

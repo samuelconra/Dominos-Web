@@ -43,36 +43,9 @@
           <div class="carrito">
             <div class="collapse" id="carritoCollapse">
               <div class="card card-body" id="seccion-carrito">
-                <div id="productos">
-                  <div class="producto-carrito" id="idProducto">
-                    <a href="" class="eliminar-producto"><i class="fa-solid fa-square-minus"></i></a>
-                    <div class="row">
-                      <div class="col-5">
-                        <img src="Images/Food/pizza-pepperoni.jpeg" alt="pepperoni" width="100%" class="imagen-producto">
-                      </div>
-                      <div class="col-7" style="height: 100%;">
-                        <div>
-                          <p class="nombreProducto-carrito">Pizza Pepperoni</p>
-                        </div>
-                        <div>
-                          <p class="tamaño-carrito">Tamaño:</p>
-                        </div>
-                        <div class="producto-caracteristicas align-content-end align-self-end">
-                          <div class="div-cantidad">
-                            <input type="number" name="cantidadProducto-carrito" class="cantidadProducto-carrito" value="1" min="1" max="5">
-                          </div>
-                          <div class="div-precio">
-                            <p class="precio-carrito">$190.00</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <div id="productos"></div>
 
-                
-
-                <hr>
+                <hr style="margin: 0; margin-bottom: 16px; margin-top: 6px;">
 
                 <div class="div-subtotal d-flex">
                   <p id="subtotal-txt" >SUBTOTAL</p>
@@ -87,6 +60,7 @@
                 <div id="entrega-carrito">
                   <label for="sucursales">SUCURSAL:</label>
                   <select name="sucursales" id="sucursales-select">
+                    <option value="LA MARINA">CARREFOUR</option>
                     <option value="LA MARINA">LA MARINA</option>
                     <option value="GALERÍAS">GALERÍAS</option>
                     <option value="PLAZA MAYOR">PLAZA MAYOR</option>
@@ -96,7 +70,12 @@
                   <br>
                   <p id="sucursal-entrega">Blvd. Antonio Madrazo Esq. Blvd. Guanajuato S/N, Las Trojes, 37227 León de los Aldama, Gto.</p>
                 </div>
-                <button id="btn-completar">COMPLETAR PEDIDO</button>
+
+                <div>
+                  <label for="emailCarrito">Email: </label>
+                  <input type="email" name="emailCarrito" class="emailInput" placeholder="user@email.com" required>
+                </div>
+                <button id="btn-completar" class="mt-4" data-bs-target="#compraExitosa" data-bs-toggle="modal">COMPLETAR PEDIDO</button>
               </div>
             </div>
           </div>
@@ -120,20 +99,6 @@
               </div>
             </div>
           </div>
-
-          <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" data-bs-theme="dark">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav mx-auto">
-              <a class="nav-link active link-navtop" aria-current="page" href="#">INICIO</a>
-              <a class="nav-link link-navtop" href="/menu.html">MENÚ</a>
-              <a class="nav-link link-navtop" href="#">ARMA TU PIZZA</a>
-              <a class="nav-link link-navtop" href="#">SUCURSALES</a>
-              <a class="nav-link link-navtop" href="/sobreNosotros.html">SOBRE NOSOTROS</a>
-            </div>
-          </div> -->
         </div>
       </nav>
     </header>
@@ -371,6 +336,20 @@
           </div>
           <div class="modal-body">
             <p style="color: #002c45; font-weight:300">Su pedido ha sido agregado exitosamente, dirijase al carrito de compra para finalizar su compra</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="compraExitosa" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalToggleLabel2" style="color: #097100;">COMPRA REALIZADA CON ÉXITO!</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="btnCerrarCompra"></button>
+          </div>
+          <div class="modal-body">
+            <p style="color: #002c45; font-weight:300">Su compra ha sido realizada exitosamente.</p>
           </div>
         </div>
       </div>

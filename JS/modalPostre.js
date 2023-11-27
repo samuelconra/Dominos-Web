@@ -22,10 +22,10 @@ postreModal.addEventListener('show.bs.modal', function (event) {
     }
 
     var descMap = {
-        "brownie": "DESC",
-        "cajeta-baitz": "DESC",
-        "canela-baitz": "DESC",
-        "volcan": "DESC"
+        "brownie": " Exquisitamente denso y chocolatoso, este brownie es un placer indulgente para los amantes del cacao. ¡Pura decadencia en cada bocado!",
+        "cajeta-baitz": "Brownie elevado con el toque dulce de la cajeta, creando una mezcla celestial de caramelos y chocolate. ¡Una experiencia única de sabores!",
+        "canela-baitz": "El aroma cálido de la canela envuelve este brownie, ofreciendo una fusión deliciosa de especias y chocolate. ¡Un toque reconfortante en cada porción!",
+        "volcan": "Irresistible indulgencia con un corazón fundido de chocolate líquido. Este postre es una erupción de placer para los amantes del chocolate. ¡Una experiencia celestial!"
     }
 
     var priceMap = {
@@ -51,6 +51,6 @@ $(document).ready(function () {
     $("#cantidadPostre").change(function () {        
         var cantidad = $("#cantidadPostre").val();
         var subtotal = cantidad * newPrice;
-        $("#postrePrice").html(subtotal);
+        $("#postrePrice").html(subtotal.toFixed(2));
     });
 });

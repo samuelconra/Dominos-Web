@@ -31,12 +31,12 @@ pizzaModal.addEventListener('show.bs.modal', function (event) {
     var descMap = {
         "pepperoni": "La original y clásica masa fresca hecha al momento con orilla dorada y espolvoreada de especias que le dan nuestro toque único.",
         "hawaiana": "La original y clásica masa fresca hecha al momento con orilla dorada y espolvoreada de especias que le dan nuestro toque único.",
-        "mexicana": "Descripcion Pizza Mexicana",
-        "cheesy": "DESC",
-        "deluxe": "DESC",
-        "fugazzeta": "DESC",
-        "napolitana": "DESC",
-        "texas": "DESC"
+        "mexicana": "Sabor explosivo con queso fundido, jalapeños picantes, carne sazonada y salsa vibrante. ¡Viaje directo a México en cada bocado!",
+        "cheesy": "Una oda al queso: mozzarella derretida, cheddar cremoso y parmesano en una fiesta de texturas. ¡Irresistiblemente deliciosa!",
+        "deluxe": "Elegancia en cada rebanada con ingredientes premium: tomates frescos, champiñones, aceitunas y una mezcla de quesos exquisita. ¡La indulgencia hecha pizza!",
+        "fugazzeta": "Tradición argentina en su máxima expresión. Cebolla caramelizada, queso y una masa esponjosa. ¡Un clásico irresistible que te transportará a Buenos Aires!",
+        "napolitana": "Auténtico sabor italiano con tomates San Marzano, mozzarella de búfala y albahaca fresca sobre masa fina. ¡Una obra maestra napolitana en cada bocado!",
+        "texas": "Una explosión de sabores del sur con salsa BBQ ahumada, pollo jugoso, cebolla caramelizada y queso cheddar. ¡Sabor texano a la parrilla en cada rebanada!"
     }
 
     var priceMap = {
@@ -71,7 +71,7 @@ $(document).ready(function () {
     $("#cantidadPizza").change(function () {        
         var cantidad = $("#cantidadPizza").val();
         var subtotal = cantidad * newPrice;
-        $("#pizzaPrice").html(subtotal);
+        $("#pizzaPrice").html(subtotal.toFixed(2));
     });
 
     $("#tamPizza").change(function () {
@@ -88,6 +88,6 @@ $(document).ready(function () {
         
         var cantidad = $("#cantidadPizza").val();
         var subtotal = cantidad * newPrice;
-        $("#pizzaPrice").html(subtotal);
+        $("#pizzaPrice").html(subtotal.toFixed(2));
     });
 });
