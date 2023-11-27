@@ -494,3 +494,10 @@ $(document).on("change", "#sucursales-select", function () {
 
     $("#sucursal-entrega").html(sucursalMap[sucursalNueva])
 });
+$(document).on("change", "#correoUser", function () {
+    if ($("#correoUser").val().length > 1){
+        $('#btn-completar').attr('data-bs-target', '#compraExitosa');
+        $('#btn-completar').attr('data-bs-toggle', 'modal');
+    }
+});
+
