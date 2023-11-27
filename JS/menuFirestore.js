@@ -284,6 +284,17 @@ const consultProducts = onSnapshot(q, (querySnapshot) => {
 
     if (cantidadProductos == 0){
         $("#productos").append(noProductsText());
+        $('#btn-completar').removeAttr('data-bs-target', '#compraExitosa');
+        $('#btn-completar').removeAttr('data-bs-toggle', 'modal');
+    }
+    else{
+        $('#btn-completar').attr('data-bs-target', '#compraExitosa');
+        $('#btn-completar').attr('data-bs-toggle', 'modal');
+    }
+
+    if ($("#correoUser").val().length < 1){
+        $('#btn-completar').removeAttr('data-bs-target', '#compraExitosa');
+        $('#btn-completar').removeAttr('data-bs-toggle', 'modal');
     }
 
     querySnapshot.forEach((doc) => {
@@ -419,10 +430,38 @@ $(document).on("click", ".eliminar-producto", function () {
     deleteDoc(doc(db, 'Carrito', idProducto));
 });
 
-$(document).on("click", "#btn-completar", function () {
-    arrayID.forEach(element => {
-        deleteDoc(doc(db, 'Carrito', element));
-    });
+$(document).on("click", "#btn-completar", async function () {
+    var correo = $("#correoUser").val()
+    if (correo.length > 1){
+        const querySnapshotCarrito = await getDocs(collection(db, "Carrito"));
+        var productosCarrito = []
+        var total = 0
+        var fechaHoraActual = new Date();
+        var sucursal = $("#sucursales-select").val()
+        querySnapshotCarrito.forEach((doc) => {
+            if (doc.id != "Existe"){
+                var infoProducto = doc.data()
+                console.log(doc.data().Precio)
+                total += parseFloat(doc.data().Precio)
+                productosCarrito.push(infoProducto)
+            }
+        });
+        const docRef = addDoc(collection(db, "Ventas"), {
+            Productos: productosCarrito,
+            Total : total.toFixed(2),
+            Fecha: fechaHoraActual,
+            Sucursal: sucursal,
+            Correo: correo
+        });
+    
+        arrayID.forEach(element => {
+            deleteDoc(doc(db, 'Carrito', element));
+        });
+    }
+    else{
+        alert("INSERTE UN CORREO ELECTRÓNICO");
+    }
+
 });
 
 $(document).on("change", ".cantidadProducto-carrito", function () {
