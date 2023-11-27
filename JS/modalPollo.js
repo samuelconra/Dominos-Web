@@ -29,10 +29,10 @@ polloModal.addEventListener('show.bs.modal', function (event) {
     }
 
     var priceMap = {
-        "alitas-bbq": "79",
-        "mango-habanero": "79",
-        "boneless-bbq": "99",
-        "boneless-naturales": "89"
+        "alitas-bbq": "70.00",
+        "mango-habanero": "70.00",
+        "boneless-bbq": "99.99",
+        "boneless-naturales": "89.99"
     }
 
     modalImagen.src = 'Images/Food/' + recipient + '.jpg' || 'imagen_defecto.jpg';

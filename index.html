@@ -43,28 +43,34 @@
           <div class="carrito">
             <div class="collapse" id="carritoCollapse">
               <div class="card card-body" id="seccion-carrito">
-
-                <div class="producto-carrito" id="idProducto">
-                  <a href="" class="eliminar-producto"><i class="fa-solid fa-square-xmark"></i></a>
-                  <div class="row">
-                    <div class="col-5">
-                      <img src="Images/Food/pizza-pepperoni.jpeg" alt="pepperoni" width="100%" class="imagen-producto">
-                    </div>
-                    <div class="col-7" style="height: 100%;">
-                      <div>
-                        <p class="nombreProducto-carrito">Pizza Pepperoni</p>
+                <div id="productos">
+                  <div class="producto-carrito" id="idProducto">
+                    <a href="" class="eliminar-producto"><i class="fa-solid fa-square-minus"></i></a>
+                    <div class="row">
+                      <div class="col-5">
+                        <img src="Images/Food/pizza-pepperoni.jpeg" alt="pepperoni" width="100%" class="imagen-producto">
                       </div>
-                      <div class="producto-caracteristicas align-content-end align-self-end">
-                        <div class="div-cantidad">
-                          <input type="number" name="cantidadProducto-carrito" class="cantidadProducto-carrito" value="1" min="1" max="5">
+                      <div class="col-7" style="height: 100%;">
+                        <div>
+                          <p class="nombreProducto-carrito">Pizza Pepperoni</p>
                         </div>
-                        <div class="div-precio">
-                          <p class="precio-carrito">$190.00</p>
+                        <div>
+                          <p class="tamaño-carrito">Tamaño:</p>
+                        </div>
+                        <div class="producto-caracteristicas align-content-end align-self-end">
+                          <div class="div-cantidad">
+                            <input type="number" name="cantidadProducto-carrito" class="cantidadProducto-carrito" value="1" min="1" max="5">
+                          </div>
+                          <div class="div-precio">
+                            <p class="precio-carrito">$190.00</p>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
+
+                
 
                 <hr>
 
@@ -300,8 +306,8 @@
                 <label for="tamPizza">Tamaño:</label>
                 <select id="tamPizza" name="tamPizza" class="tamProducto">
                   <option value="Individual">Individual</option>
-                  <option value="Mediana">Mediana (+$60)</option>
-                  <option value="Grande">Grande (+$120)</option>
+                  <option value="Mediana">Mediana (+$30)</option>
+                  <option value="Grande">Grande (+$60)</option>
                 </select>
               </div>
               <div class="col-6 text-end align-self-end">

@@ -333,6 +333,7 @@ a.link-navtop:active, a.link-navtop.active{
 .nombreProducto-carrito{
     font-size: 1.2rem;
     font-weight: 400;
+    margin: 0;
 }
 .precio-carrito{
     display: inline;
@@ -354,6 +355,11 @@ a.link-navtop:active, a.link-navtop.active{
     margin-top: auto;
 }
 
+.tamaño-carrito{
+    font-size: 0.8rem;
+    font-weight: 300;
+    margin: 0;
+}
 #subtotal-carrito{
     font-size: 1.1rem;
     font-weight: 500;

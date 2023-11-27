@@ -40,14 +40,14 @@ pizzaModal.addEventListener('show.bs.modal', function (event) {
     }
 
     var priceMap = {
-        "pepperoni": "99",
-        "hawaiana": "109",
-        "mexicana": "109",
-        "cheesy": "119",
-        "deluxe": "139",
-        "fugazzeta": "119",
-        "napolitana": "109",
-        "texas": "119"
+        "pepperoni": "99.99",
+        "hawaiana": "109.99",
+        "mexicana": "109.99",
+        "cheesy": "119.99",
+        "deluxe": "139.99",
+        "fugazzeta": "119.99",
+        "napolitana": "109.99",
+        "texas": "119.99"
     }
 
     //   modalTitle.textContent = 'New message to ' + recipient
@@ -79,11 +79,11 @@ $(document).ready(function () {
         newPrice = originalPrice;       
         if (currentValue == 'Mediana') 
         {
-            newPrice = parseInt(newPrice) + 60;
+            newPrice = parseInt(newPrice) + 30;
         }
         else if (currentValue == 'Grande')
         {
-            newPrice = parseInt(newPrice) + 120;
+            newPrice = parseInt(newPrice) + 60;
         }
         
         var cantidad = $("#cantidadPizza").val();

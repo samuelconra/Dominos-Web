@@ -30,7 +30,7 @@
     <header>
       <nav class="navbar navbar-expand-lg sticky-top bg-azul-dominos">
         <div class="container-fluid">
-          <a class="navbar-brand order-1 order-md-1 order-lg-0" href="/index.html"> 
+          <a class="navbar-brand order-1 order-md-1 order-lg-0" href="/index.html">
             <img src="Images/DominosLogo-Chico.png" alt="Dominos-Logo" style="width: 40px;">
           </a>
 
@@ -67,7 +67,7 @@
       <h1 style="font-weight: 700;">ARMA TU PIZZA</h1>
       <!-- nav menu -->
       <nav>
-        <div class="nav nav-pills justify-content-center my-4" id="v-pills-tab" role="tablist">
+        <div class="nav nav-pills justify-content-center mt-4 mb-0" id="v-pills-tab" role="tablist">
           <button class="nav-link active link-menu" id="v-pills-masa-tab" data-bs-toggle="pill" data-bs-target="#v-pills-masa" type="button" role="tab" aria-controls="v-pills-masa" aria-selected="true">TAMAÑO Y MASA</button>
           <button class="nav-link link-menu" id="v-pills-queso-tab" data-bs-toggle="pill" data-bs-target="#v-pills-queso" type="button" role="tab" aria-controls="v-pills-queso" aria-selected="false">QUESO Y SALSA</button>
           <button class="nav-link link-menu" id="v-pills-ingredientes-tab" data-bs-toggle="pill" data-bs-target="#v-pills-ingredientes" type="button" role="tab" aria-controls="v-pills-ingredientes" aria-selected="false">INGREDIENTES</button>
@@ -81,6 +81,9 @@
           <div class="row align-items-center justify-content-between" id="masaDiv">
             <div class="col-12 col-md-5 col-lg-5 order-1 order-md-0 order-lg-0 contenedor-imagen-pizza">
               <img src="/Images/Pizza-Base.png" alt="pizza-base" class="imagen-pizza-base">
+              <img src="/Images/cheese-icon.png" alt="cheese-icon" class="cheese-icon">
+              <img src="/Images/tomato-icon.png" alt="tomato-icon" class="tomato-icon">
+              <!-- <i class="fa-solid fa-cheese tomato-icon"></i> -->
             </div>
             <div class="col-12 col-md-7 col-lg-7 order-0 order-md-1 order-lg-1">
               <div class="row align-items-center justify-content-between px-lg-4">
@@ -105,23 +108,23 @@
                 <div class="col-6 col-md-6 col-lg-6 text-center p-3">
                   <div class="pedido-actual">
                     <h3>MI PIZZA</h3>
-                    <p>Pizza <span class="txt-tam">Grande</span> <span class="txt-masa">Original</span></p>
+                    <p id="pizza-main">Pizza <span class="txt-tam">Individual</span> <span class="txt-masa">Original</span></p>
 
                     <div class="row">
                       <div class="col-6">
                         <p class="lado-pizza">Izquierda</p>
-                        <p class="txt-lado-izquierdo">Queso Mozzarella</p>
+                        <p class="txt-lado-izquierdo" id="txt-izquierdo">Sin Ingredientes</p>
                       </div>
                       <div class="col-6">
                         <p class="lado-pizza">Derecha</p>
-                        <p class="txt-lado-derecho">Extra Queso</p>
+                        <p class="txt-lado-derecho" id="txt-derecho">Sin Ingredientes</p>
                       </div>
                     </div>
 
                     <p class="lado-pizza">Completa</p>
-                    <p class="txt-completa">Extra Salsa de Tomate, Chorizo, Pollo</p>
+                    <p class="txt-completa" id="txt-completa">Queso Mozzarela, Salsa de Tomate</p>
 
-                    <input type="number" name="cantidadDePizza" id="cantidadDePizza" class="cantidadProducto" value="1" min="1" max="5">
+                    <input type="number" name="cantidadDePizza" class="cantidadProducto" id="txt-cantidad" value="1" min="1" max="5">
                     <div class="text-center mt-2">
                       <button class="btnAgregarProducto" data-bs-target="#agregadoExitosoModal" data-bs-toggle="modal">AGREGAR AL CARRITO</button>
                     </div>
@@ -137,61 +140,63 @@
           <div class="row align-items-center justify-content-between" id="quesoDiv">
             <div class="col-12 col-md-5 col-lg-5 order-1 order-md-0 order-lg-0 contenedor-imagen-pizza">
               <img src="/Images/Pizza-Base.png" alt="pizza-base" class="imagen-pizza-base">
+              <img src="/Images/cheese-icon.png" alt="cheese-icon" class="cheese-icon">
+              <img src="/Images/tomato-icon.png" alt="tomato-icon" class="tomato-icon">
             </div>
             <div class="col-12 col-md-7 col-lg-7 order-0 order-md-1 order-lg-1">
               <div class="row align-items-center justify-content-between px-lg-4">
                 <div class="col-6 col-md-6 col-lg-6 text-start">
                   <div>
                     <label class="label-opcion">ELIGE EL QUESO:</label>
-                    <input type="checkbox" id="quesoMozzarela" name="quesoMozzarela" value="Queso Mozzarela" checked/>
+                    <input type="checkbox" id="quesoMozzarela" class="queso-checkbox" name="quesoMozzarela" value="Queso Mozzarela" checked/>
                     <label for="quesoMozzarela" class="label-checkbox">Queso Mozzarela</label>
                     <br>
-                    <select name="quesoSelector" id="quesoSelector" class="select-opcion">
+                    <select name="quesoSelector" id="quesoSelector" class="queso-select">
                       <option value="Normal">Normal</option>
                       <option value="Extra">Extra</option>
                     </select>
                     <br>
-                    <div class="mt-2" id="div-mitades-queso">
+                    <!-- <div class="mt-2" id="div-mitades-queso">
                       <button class="icon-circulo-mitad-izquierda icono-circulo" value="izquierda"></button>
                       <button class="icon-circulo-completo icono-circulo active-mitad" value="completa"></button>
                       <button class="icon-circulo-mitad-derecha icono-circulo" value="derecha"></button>
-                    </div>
+                    </div> -->
                   </div>
                   <label class="label-opcion mt-lg-3">ELIGE LA SALSA:</label>
-                  <input type="checkbox" id="salsaTomate" name="salsaTomate" value="conSalsa" checked/>
+                  <input type="checkbox" id="salsaTomate" class="queso-checkbox" name="salsaTomate" value="Salsa de Tomate" checked/>
                   <label for="salsaTomate" class="label-checkbox">Salsa de Tomate</label>
                   <br>
-                  <select name="salsaSelector" id="salsaSelector" class="select-opcion">
+                  <select name="salsaSelector" id="salsaSelector" class="queso-select">
                     <option value="Normal">Normal</option>
                     <option value="Extra">Extra</option>
                   </select>
                   <br>
-                  <div class="mt-2" id="div-mitades-salsa">
+                  <!-- <div class="mt-2" id="div-mitades-salsa">
                     <button class="icon-circulo-mitad-izquierda icono-circulo" value="izquierda"></button>
                     <button class="icon-circulo-completo icono-circulo active-mitad" value="completa"></button>
                     <button class="icon-circulo-mitad-derecha icono-circulo" value="derecha"></button>
-                  </div>
+                  </div> -->
                 </div>
                 <div class="col-6 col-md-6 col-lg-6 text-center p-3">
                   <div class="pedido-actual">
                     <h3>MI PIZZA</h3>
-                    <p>Pizza <span class="txt-tam">Grande</span> <span class="txt-masa">Original</span></p>
+                    <p class = "pizza-main">Pizza <span class="txt-tam">Individual</span> <span class="txt-masa">Original</span></p>
 
                     <div class="row">
                       <div class="col-6">
                         <p class="lado-pizza">Izquierda</p>
-                        <p>Queso Mozzarella</p>
+                        <p class="txt-lado-izquierdo">Sin Ingredientes</p>
                       </div>
                       <div class="col-6">
                         <p class="lado-pizza">Derecha</p>
-                        <p>Extra Queso</p>
+                        <p class="txt-lado-derecho">Sin Ingredientes</p>
                       </div>
                     </div>
 
                     <p class="lado-pizza">Completa</p>
-                    <p>Extra Salsa de Tomate, Chorizo, Pollo</p>
+                    <p class="txt-completa">Queso Mozzarela, Salsa de Tomate</p>
 
-                    <input type="number" name="cantidadDePizza" id="cantidadDePizza" class="cantidadProducto" value="1" min="1" max="5">
+                    <input type="number" name="cantidadDePizza" class="cantidadProducto" value="1" min="1" max="5">
                     <div class="text-center mt-2">
                       <button class="btnAgregarProducto" data-bs-target="#agregadoExitosoModal" data-bs-toggle="modal">AGREGAR AL CARRITO</button>
                     </div>
@@ -204,13 +209,18 @@
 
         <!-- ingredientes -->
         <div class="tab-pane fade" id="v-pills-ingredientes" role="tabpanel" aria-labelledby="v-pills-ingredientes-tab" tabindex="0">
+          <div id="limit-modal">
+            <p id="limit-message">LÍMITE DE INGREDIENTES ALCANZADO, ELIJA MENOS DE 5 INGREDIENTES</p>
+          </div>
           <div class="row align-items-center justify-content-between" id="ingredientesDiv">
-            <div class="col-12 col-md-5 col-lg-5 order-1 order-md-0 order-lg-0 contenedor-imagen-pizza">
+            <div class="col-12 col-md-5 col-lg-5 order-0 order-md-0 order-lg-0 contenedor-imagen-pizza">
               <img src="/Images/Pizza-Base.png" alt="pizza-base" class="imagen-pizza-base">
+              <img src="/Images/cheese-icon.png" alt="cheese-icon" class="cheese-icon">
+              <img src="/Images/tomato-icon.png" alt="tomato-icon" class="tomato-icon">
             </div>
-            <div class="col-12 col-md-7 col-lg-6 order-0 order-md-1 order-lg-1">
+            <div class="col-12 col-md-7 col-lg-6 order-1 order-md-1 order-lg-1">
               <div class="row justify-content-between px-lg-4">
-                <div class="col-6 col-md-6 col-lg-6 text-start mt-3 mt-md-0 mt-lg-0 order-1 order-md-0 order-lg-0">
+                <div class="col-6 col-md-6 col-lg-6 text-start mt-3 mt-md-0 mt-lg-0 order-0 order-md-0 order-lg-0">
                   <label class="label-opcion">ELIGE TUS CARNES:</label>
                   <div>
                     <input type="checkbox" id="pepperoni-checkbox" name="pepperoni-checkbox" class="ingrediente-checkbox" value="pepperoni"/>
@@ -276,7 +286,7 @@
                     </div>  
                   </div>
                 </div>
-                <div class="col-6 col-md-6 col-lg-6 text-start mt-3 mt-md-0 mt-lg-0 order-2 order-md-1 order-lg-1">
+                <div class="col-6 col-md-6 col-lg-6 text-start mt-3 mt-md-0 mt-lg-0 order-1 order-md-1 order-lg-1">
                     <label class="label-opcion">ELIGE OTROS:</label>
 
                     <div>
@@ -349,26 +359,26 @@
                       </div> 
                     </div>
                 </div>
-                <div class="col-12 col-md-12 col-lg-9 text-center mt-3 order-0 order-md-2 order-lg-2">
+                <div class="col-12 col-md-12 col-lg-9 text-center mt-3 order-2 order-md-2 order-lg-2">
                   <div class="pedido-actual">
                     <h3>MI PIZZA</h3>
-                    <p>Pizza <span class="txt-tam">Grande</span> <span class="txt-masa">Original</span></p>
+                    <p class = "pizza-main">Pizza <span class="txt-tam">Individual</span> <span class="txt-masa">Original</span></p>
 
                     <div class="row">
                       <div class="col-6">
                         <p class="lado-pizza">Izquierda</p>
-                        <p>Queso Mozzarella</p>
+                        <p class="txt-lado-izquierdo">Sin Ingredientes</p>
                       </div>
                       <div class="col-6">
                         <p class="lado-pizza">Derecha</p>
-                        <p>Extra Queso</p>
+                        <p class="txt-lado-derecho">Sin Ingredientes</p>
                       </div>
                     </div>
 
                     <p class="lado-pizza">Completa</p>
-                    <p>Extra Salsa de Tomate, Chorizo, Pollo</p>
+                    <p class="txt-completa">Queso Mozzarela, Salsa de Tomate</p>
 
-                    <input type="number" name="cantidadDePizza" id="cantidadDePizza" class="cantidadProducto" value="1" min="1" max="5">
+                    <input type="number" name="cantidadDePizza" class="cantidadProducto" value="1" min="1" max="5">
                     <div class="text-center mt-2">
                       <button class="btnAgregarProducto" data-bs-target="#agregadoExitosoModal" data-bs-toggle="modal">AGREGAR AL CARRITO</button>
                     </div>
@@ -406,6 +416,20 @@
       </div>
     </footer>
 
-    <script src="JS/activeFunction.js"></script>
+    <!-- MODAL AGREGAR AL CARRITO -->
+    <div class="modal fade" id="agregadoExitosoModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalToggleLabel2" style="color: #097100;">¡PEDIDO AGREGADO CON ÉXITO!</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p style="color: #002c45; font-weight:300">Su pedido ha sido agregado exitosamente, dirijase al carrito de compra para finalizar su compra</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>

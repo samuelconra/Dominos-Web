@@ -29,10 +29,10 @@ postreModal.addEventListener('show.bs.modal', function (event) {
     }
 
     var priceMap = {
-        "brownie": "69",
-        "cajeta-baitz": "49",
-        "canela-baitz": "49",
-        "volcan": "79"
+        "brownie": "69.99",
+        "cajeta-baitz": "50.00",
+        "canela-baitz": "50.00",
+        "volcan": "79.099"
     }
 
     modalImagen.src = 'Images/Food/' + recipient + '.jpg' || 'imagen_defecto.jpg';

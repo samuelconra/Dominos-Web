@@ -32,11 +32,11 @@ bebidasModal.addEventListener('show.bs.modal', function (event) {
     }
 
     var priceMap = {
-        "coca-cola": "18",
-        "pepsi": "18",
-        "fanta": "16",
-        "sprite": "16",
-        "agua": "10"
+        "coca-cola": "18.00",
+        "pepsi": "18.00",
+        "fanta": "16.00",
+        "sprite": "16.00",
+        "agua": "10.00"
     }
 
     modalImagen.src = 'Images/Food/' + recipient + '.jpg' || 'imagen_defecto.jpg';

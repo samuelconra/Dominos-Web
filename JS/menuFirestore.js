@@ -17,12 +17,12 @@ const app = initializeApp(firebaseConfig);
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(app);
 
+
+// actualizar numero de elementos en carrito
 const q = query(collection(db, "Carrito"));
 const unsubscribe = onSnapshot(q, (querySnapshot) => {
     $('#cantidad-carrito').html(querySnapshot.size - 1)
 });
-
-
 
 // get pizzas
 const querySnapshotPizzas = await getDocs(collection(db, "Pizzas"));
@@ -91,6 +91,7 @@ $("#btnAgregarPizza").click(function () {
      Cantidad: quantity,
      Tamaño: size,
      Precio: price,
+     Tipo: 1
     });
 });
 
@@ -106,6 +107,7 @@ $("#btnAgregarPollo").click(function () {
      Cantidad: quantity,
      Tamaño: size,
      Precio: price,
+     Tipo: 2
     });
 });
 
@@ -121,6 +123,7 @@ $("#btnAgregarBebida").click(function () {
      Cantidad: quantity,
      Tamaño: size,
      Precio: price,
+     Tipo: 3
     });
 });
 
@@ -134,6 +137,7 @@ $("#btnAgregarPostre").click(function () {
      Producto: name,
      Cantidad: quantity,
      Precio: price,
+     Tipo: 4
     });
 });
 
@@ -150,21 +154,22 @@ function createSucursalCard(name, link, location, phone, value) {
     var htmlCard = `
     <div class="col-12 col-md-6 col-lg-4 p-4">
         <div class="tarjeta-sucursal">
-        <iframe src="${link}" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <div class="info-sucursal text-center">
-            <h5>${name}</h5> 
-            <p class="mt-3">${location}</p>
-            <p>Teléfono: <span style="font-weight: 400;">${phone}</span></p>
-            <button class="btn-sucursal" value="${value}" data-bs-target="#sucursalAgregada" data-bs-toggle="modal">Seleccionar</button>
-        </div>
+            <iframe src="${link}" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="info-sucursal text-center">
+                <h5>${name}</h5> 
+                <p class="mt-3">${location}</p>
+                <p>Teléfono: <span style="font-weight: 400;">${phone}</span></p>
+                <button class="btn-sucursal" value="${value}" data-bs-target="#sucursalAgregada" data-bs-toggle="modal">Seleccionar</button>
+            </div>
         </div>
     </div>
     `;
     return htmlCard;
 }
 
-// HACER QUE EL CARRITO APAREZCA EN HOVER
+
 $(document).ready(function() {
+    // carrito en hover
     $(".contenedor-carrito").hover(
         function() {
             $("#carritoCollapse").addClass("show");
@@ -182,4 +187,118 @@ $(document).ready(function() {
             $(this).removeClass("show");
         }
     );
-  });
+});
+
+// agregar pizza personalizada a carrito
+$('.btnAgregarProducto').click(function () {
+    var pizza = $("#pizza-main").text();
+    var izquierda = $("#txt-izquierdo").text();
+    var derecha = $("#txt-derecho").text();
+    var completa = $("#txt-completa").text();
+    var cantidad = $("#txt-cantidad").val();
+    var precio = 109.99
+
+    var tam = $("#pizza-tam").val();
+    var masa = $("#pizza-masa").val();
+    var queso = $("#quesoSelector").val();
+    var salsa = $("#salsaSelector").val();
+
+    if (tam == 'Mediana') {
+        precio += 30;
+    } 
+    else if (tam == 'Grande') {
+        precio += 60;
+    }
+
+    if (masa == 'Orilla de Queso') {
+        precio += 20;
+    } 
+    else if (masa == 'Crunchy') {
+        precio += 10;
+    }
+
+    if ($('#quesoMozzarela').prop('checked')) {
+        if (queso == 'Extra'){
+            precio += 10;
+        }
+    } else {
+        precio -= 15;
+    }
+    
+    if ($('#salsaTomate').prop('checked')) {
+        if (queso == 'Extra'){
+            precio += 10;
+        }
+    } else {
+        precio -= 15;
+    }
+    
+    precio += ($('.ingrediente-checkbox:checked').length * 8);
+    precio *= cantidad;
+
+    const docRef = addDoc(collection(db, "Carrito"), {
+        Producto: pizza,
+        Izquierda: izquierda,
+        Derecha: derecha,
+        Completa: completa,
+        Cantidad: cantidad,
+        Precio: precio.toFixed(2),
+        Tipo: 5
+    });
+});
+
+// agregar productos al carrito
+
+
+
+// const products = query(collection(db, "Carrito"));
+// var carritoPizzas = "";
+// const consultProducts = onSnapshot(products, (querySnapshot) => {
+//     carritoPizzas += createPizzaCard(doc.data().Producto, doc.data().Tamaño, doc.data().Cantidad, doc.data().Precio);
+// });
+
+
+
+// const product = await getDocs(collection(db, "Carrito"));
+// var carritoPizzas = "";
+// product.forEach((doc) => {
+//     if (doc.data().Precio == 1){
+//         carritoPizzas += createPizzaCard(doc.data().Producto, doc.data().Tamaño, doc.data().Cantidad, doc.data().Precio);
+//     }
+//     else if (doc.data().Precio == 2){
+//         carritoPollo += createPolloCard(doc.data().Producto, doc.data().Tamaño, doc.data().Cantidad, doc.data().Precio);
+//     }
+// });
+
+// $("#productos").html(carritoPizzas);
+// $("#productos").html(carritoPollo);
+
+// function createPizzaCard(producto, tam, cantidad, precio) {
+//     var htmlCard = `
+//     <div class="producto-carrito mt-4" id="idProducto">
+//         <a href="" class="eliminar-producto"><i class="fa-solid fa-square-minus"></i></a>
+//         <div class="row">
+//         <div class="col-5">
+//             <img src="Images/Food/pizza-pepperoni.jpeg" alt="pepperoni" width="100%" class="imagen-producto">
+//         </div>
+//         <div class="col-7" style="height: 100%;">
+//             <div>
+//             <p class="nombreProducto-carrito">${producto}</p>
+//             </div>
+//             <div>
+//             <p class="tamaño-carrito">Tamaño: ${tam}</p>
+//             </div>
+//             <div class="producto-caracteristicas align-content-end align-self-end">
+//             <div class="div-cantidad">
+//                 <input type="number" name="cantidadProducto-carrito" class="cantidadProducto-carrito" value="${cantidad}" min="1" max="5">
+//             </div>
+//             <div class="div-precio">
+//                 <p class="precio-carrito">$${parseFloat(precio).toFixed(2)}</p>
+//             </div>
+//             </div>
+//         </div>
+//         </div>
+//     </div>
+//     `;
+//     return htmlCard;
+// }

@@ -26,6 +26,12 @@ input{
   background-color: rgb(0, 44, 69, 0.15);
   width: 60%;
 }
+.queso-select{
+  padding: 0.5rem;
+  border-radius: 0.8rem;
+  background-color: rgb(0, 44, 69, 0.15);
+  width: 60%;
+}
 #quesoDiv .select-opcion{
   width: 60%;
   margin-top: 0.2rem;
@@ -33,11 +39,12 @@ input{
 }
 .pedido-actual{
   font-weight: 300;
-  padding: 10px;
+  padding: 10px 20px;
   padding-top: 30px;
   border-radius: 0.7rem;
   color: #002c45;
   background-color: rgb(0, 44, 69, 0.15);
+  width: 100%;
 }
 .lado-pizza{
   font-weight: 500;
@@ -62,9 +69,8 @@ input{
   }
   
   [class^="icon-"], [class*=" icon-"] {
-    /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'icomoon' !important;
-    speak: never;
+    /* speak: never; */
     font-style: normal;
     font-weight: normal;
     font-variant: normal;
@@ -137,4 +143,42 @@ button.active-mitad, .icono-circulo:hover{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scaleX(-1) scaleY(-1);
+}
+.cheese-icon{
+  position: absolute;
+  top: 42%;
+  right: 3%;
+  right: 2.5%;
+  transform: translate(-50%, -50%);
+  width: 5%;
+}
+
+.tomato-icon{
+  position: absolute;
+  top: 58%;
+  right: 2.5%;
+  transform: translate(-50%, -50%);
+  width: 5%;
+  /* color: #002c45;
+  font-size: 1.5rem; */
+}
+
+#limit-modal{
+  position: absolute;
+  background-color: #dddddde7;
+  padding: 20px 10px;
+  border-radius: 10px;
+  width: 50%;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+#limit-message{
+  margin: 0;
+  color: red;
+  font-size: 1.3rem;
+  font-weight: 500;
+  transition: all 1s ease;
 }
